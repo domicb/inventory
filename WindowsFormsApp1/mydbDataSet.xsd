@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="mydbDataSet" targetNamespace="http://tempuri.org/mydbDataSet.xsd" xmlns:mstns="http://tempuri.org/mydbDataSet.xsd" xmlns="http://tempuri.org/mydbDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="conexionCarrilloDB" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="conexionCarrilloDB (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WindowsFormsApp1.Properties.Settings.GlobalReference.Default.conexionCarrilloDB" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="clientTableAdapter" GeneratorDataComponentClassName="clientTableAdapter" Name="client" UserDataComponentName="clientTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="conexionCarrilloDB (Settings)" DbObjectName="mydb.client" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idclient`, `name`, `tlf`, `email` FROM `client`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="invoiceTableAdapter" GeneratorDataComponentClassName="invoiceTableAdapter" Name="invoice" UserDataComponentName="invoiceTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="conexionCarrilloDB (Settings)" DbObjectName="mydb.invoice" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idinvoice`, `dateCreate`, `amount`, `client_idclient` FROM `invoice`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="invoice_has_productTableAdapter" GeneratorDataComponentClassName="invoice_has_productTableAdapter" Name="invoice_has_product" UserDataComponentName="invoice_has_productTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="conexionCarrilloDB (Settings)" DbObjectName="mydb.invoice_has_product" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `invoice_idinvoice`, `product_idproduct`, `id_subproduct` FROM `invoice_has_product`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="productTableAdapter" GeneratorDataComponentClassName="productTableAdapter" Name="product" UserDataComponentName="productTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="conexionCarrilloDB (Settings)" DbObjectName="mydb.product" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idproduct`, `name`, `size`, `quantity`, `dateIn`, `dateOut`, `kg`, `price` FROM `product`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="subproductTableAdapter" GeneratorDataComponentClassName="subproductTableAdapter" Name="subproduct" UserDataComponentName="subproductTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="conexionCarrilloDB (Settings)" DbObjectName="mydb.subproduct" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idsubProduct`, `name`, `size`, `product_idproduct`, `kg`, `quantity`, `price` FROM `subproduct`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="mydbDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="mydbDataSet" msprop:Generator_UserDSName="mydbDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="client" msprop:Generator_TableClassName="clientDataTable" msprop:Generator_TableVarName="tableclient" msprop:Generator_TablePropName="client" msprop:Generator_RowDeletingName="clientRowDeleting" msprop:Generator_RowChangingName="clientRowChanging" msprop:Generator_RowEvHandlerName="clientRowChangeEventHandler" msprop:Generator_RowDeletedName="clientRowDeleted" msprop:Generator_UserTableName="client" msprop:Generator_RowChangedName="clientRowChanged" msprop:Generator_RowEvArgName="clientRowChangeEvent" msprop:Generator_RowClassName="clientRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="invoice" msprop:Generator_TableClassName="invoiceDataTable" msprop:Generator_TableVarName="tableinvoice" msprop:Generator_TablePropName="invoice" msprop:Generator_RowDeletingName="invoiceRowDeleting" msprop:Generator_RowChangingName="invoiceRowChanging" msprop:Generator_RowEvHandlerName="invoiceRowChangeEventHandler" msprop:Generator_RowDeletedName="invoiceRowDeleted" msprop:Generator_UserTableName="invoice" msprop:Generator_RowChangedName="invoiceRowChanged" msprop:Generator_RowEvArgName="invoiceRowChangeEvent" msprop:Generator_RowClassName="invoiceRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="invoice_has_product" msprop:Generator_TableClassName="invoice_has_productDataTable" msprop:Generator_TableVarName="tableinvoice_has_product" msprop:Generator_TablePropName="invoice_has_product" msprop:Generator_RowDeletingName="invoice_has_productRowDeleting" msprop:Generator_RowChangingName="invoice_has_productRowChanging" msprop:Generator_RowEvHandlerName="invoice_has_productRowChangeEventHandler" msprop:Generator_RowDeletedName="invoice_has_productRowDeleted" msprop:Generator_UserTableName="invoice_has_product" msprop:Generator_RowChangedName="invoice_has_productRowChanged" msprop:Generator_RowEvArgName="invoice_has_productRowChangeEvent" msprop:Generator_RowClassName="invoice_has_productRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="product" msprop:Generator_TableClassName="productDataTable" msprop:Generator_TableVarName="tableproduct" msprop:Generator_TablePropName="product" msprop:Generator_RowDeletingName="productRowDeleting" msprop:Generator_RowChangingName="productRowChanging" msprop:Generator_RowEvHandlerName="productRowChangeEventHandler" msprop:Generator_RowDeletedName="productRowDeleted" msprop:Generator_UserTableName="product" msprop:Generator_RowChangedName="productRowChanged" msprop:Generator_RowEvArgName="productRowChangeEvent" msprop:Generator_RowClassName="productRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="subproduct" msprop:Generator_TableClassName="subproductDataTable" msprop:Generator_TableVarName="tablesubproduct" msprop:Generator_TablePropName="subproduct" msprop:Generator_RowDeletingName="subproductRowDeleting" msprop:Generator_RowChangingName="subproductRowChanging" msprop:Generator_RowEvHandlerName="subproductRowChangeEventHandler" msprop:Generator_RowDeletedName="subproductRowDeleted" msprop:Generator_UserTableName="subproduct" msprop:Generator_RowChangedName="subproductRowChanged" msprop:Generator_RowEvArgName="subproductRowChangeEvent" msprop:Generator_RowClassName="subproductRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
