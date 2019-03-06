@@ -11,22 +11,11 @@ namespace WindowsFormsApp1
         string name;
         string size;
         string quantity;
-        string dateIn;
         string dateOut;
         string kg;
         string price;
         private string weight;
         private DateTime now;
-
-        public Product(string name, string size, string kg, string quantity, string price, string dateIn)
-        {
-            this.name = name;
-            this.size = size;
-            this.kg = kg;
-            this.quantity = quantity;
-            this.price = price;
-            this.dateIn = dateIn;
-        }
 
         public Product(string name, string size, string weight, string quantity, string price, DateTime now)
         {
@@ -63,9 +52,9 @@ namespace WindowsFormsApp1
             return quantity;
         }
 
-        public string getDateIn()
+        public DateTime getNow()
         {
-            return dateIn;
+            return now;
         }
     }
 }

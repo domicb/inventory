@@ -46,7 +46,7 @@ namespace WindowsFormsApp1
                         dataGridView1.Rows.Add();
                         dataGridView1.Rows[i].Cells[0].Value = listaDatos.ElementAt(i).getName();
                         dataGridView1.Rows[i].Cells[1].Value = listaDatos.ElementAt(i).getSize();
-                        dataGridView1.Rows[i].Cells[2].Value = listaDatos.ElementAt(i).getDateIn();
+                        dataGridView1.Rows[i].Cells[2].Value = listaDatos.ElementAt(i).getNow();
                         dataGridView1.Rows[i].Cells[3].Value = listaDatos.ElementAt(i).getQuantity();
                         dataGridView1.Rows[i].Cells[4].Value = listaDatos.ElementAt(i).getKg();
                         dataGridView1.Rows[i].Cells[5].Value = listaDatos.ElementAt(i).getPrice() + " Euros";
@@ -102,13 +102,14 @@ namespace WindowsFormsApp1
             //obtiene el valor de la celda seleccionada
             label2.Text = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
             listaDatos = nuevaConexion.SelectSubProduct(label2.Text);
+
             int n = dataGridView1.Rows.Add();
             int i = 0;
             foreach (var item in listaDatos)
             {
                 dataGridView1.Rows[i].Cells[0].Value = listaDatos.ElementAt(i).getName();
                 dataGridView1.Rows[i].Cells[1].Value = listaDatos.ElementAt(i).getSize();
-                dataGridView1.Rows[i].Cells[2].Value = listaDatos.ElementAt(i).getDateIn();
+                dataGridView1.Rows[i].Cells[2].Value = listaDatos.ElementAt(i).getNow();
                 dataGridView1.Rows[i].Cells[3].Value = listaDatos.ElementAt(i).getQuantity();
                 dataGridView1.Rows[i].Cells[4].Value = listaDatos.ElementAt(i).getKg();
                 dataGridView1.Rows[i].Cells[5].Value = listaDatos.ElementAt(i).getPrice() + " Euros";

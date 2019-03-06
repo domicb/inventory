@@ -107,7 +107,30 @@ namespace WindowsFormsApp1
             //TODO
             //NECESITAMOS LA ID DEL PADRE PARA REALIZAR EL INSERT ES OBLIGATORIO
             string query = "SELECT idproduct FROM `product` WHERE `name` LIKE '%" + name + "%'";
-            return  "";
+            if (this.OpenConnection() == true)
+            {
+                try
+                {
+
+                    //Create Command
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {                     
+                        MySqlDataReader dataReader = cmd.ExecuteReader();
+                        string idProduct = dataReader[0].ToString();
+                        return idProduct;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("error" + ex.Message);
+                    return "error "+ ex.Message;
+                }
+
+            }
+            else
+            {
+                return "error 44";
+            }
         }
 
         //Insert statement
@@ -121,9 +144,10 @@ namespace WindowsFormsApp1
             string kg = product.getKg();
             string price = product.getPrice();
             string query = "";
+            string idProduct = this.idProduct(name);
             DateTime dateOut = DateTime.Now;
             DateTime dateIn = DateTime.Now;
-            if (padre != "")
+            if (padre != "Producto Padre")
             {
                 query = "INSERT INTO `subproduct`(`name`,`size`,`product_idproduct`,`quantity`,`dateIn`,`dateOut`,`kg`,`price`)VALUES(@name, @size, @idproduct, @quantity, @dateIn, @dateOut, @kg , @price );";
             }
@@ -142,11 +166,15 @@ namespace WindowsFormsApp1
                     {
                         cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
                         cmd.Parameters.Add("@size", MySqlDbType.VarChar).Value = size;
-                        cmd.Parameters.Add("@quantity", MySqlDbType.VarChar).Value = quantity;
+                        if (padre != "Producto Padre")
+                        {
+                            cmd.Parameters.Add("@idproduct", MySqlDbType.Int32).Value = Int32.Parse(idProduct);
+                        }
+                        cmd.Parameters.Add("@quantity", MySqlDbType.Double).Value = quantity;
                         cmd.Parameters.Add("@dateIn", MySqlDbType.DateTime).Value = dateIn;
                         cmd.Parameters.Add("@dateOut", MySqlDbType.DateTime).Value = dateOut;
-                        cmd.Parameters.Add("@kg", MySqlDbType.VarChar).Value = kg;
-                        cmd.Parameters.Add("@price", MySqlDbType.VarChar).Value = price;
+                        cmd.Parameters.Add("@kg", MySqlDbType.Double).Value = kg;
+                        cmd.Parameters.Add("@price", MySqlDbType.Double).Value = price;
                         return cmd.ExecuteNonQuery();                      
                     }
                 }
@@ -189,8 +217,8 @@ namespace WindowsFormsApp1
                 MySqlDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    
-                    Product producto = new Product(dataReader["name"].ToString(), dataReader["size"].ToString(), dataReader["kg"].ToString(), dataReader["quantity"].ToString(), dataReader["price"].ToString(),dataReader["dateIn"].ToString());
+                    DateTime now = DateTime.Now;
+                    Product producto = new Product(dataReader["name"].ToString(), dataReader["size"].ToString(), dataReader["kg"].ToString(), dataReader["quantity"].ToString(), dataReader["price"].ToString(),now);
                     listProducts.Add(producto);
                 }
                 //close Data Reader
@@ -229,7 +257,8 @@ namespace WindowsFormsApp1
                 //Read the data and store them in the list      
                 while (dataReader.Read())
                 {
-                    Product producto = new Product(dataReader["name"].ToString(), dataReader["size"].ToString(), dataReader["kg"].ToString(), dataReader["quantity"].ToString(), dataReader["price"].ToString(), dataReader["dateIn"].ToString());
+                    DateTime now = DateTime.Now;
+                    Product producto = new Product(dataReader["name"].ToString(), dataReader["size"].ToString(), dataReader["kg"].ToString(), dataReader["quantity"].ToString(), dataReader["price"].ToString(), now);
                     list.Add(producto);
                 }
 
