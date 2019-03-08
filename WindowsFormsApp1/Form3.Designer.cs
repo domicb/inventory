@@ -43,6 +43,7 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelError = new System.Windows.Forms.Label();
             this.textBoxPadre = new System.Windows.Forms.TextBox();
+            this.buttonModify = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -152,7 +153,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(407, 185);
+            this.buttonSave.Location = new System.Drawing.Point(410, 146);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(118, 55);
             this.buttonSave.TabIndex = 12;
@@ -175,11 +176,22 @@
             this.textBoxPadre.Size = new System.Drawing.Size(157, 20);
             this.textBoxPadre.TabIndex = 14;
             // 
+            // buttonModify
+            // 
+            this.buttonModify.Location = new System.Drawing.Point(430, 222);
+            this.buttonModify.Name = "buttonModify";
+            this.buttonModify.Size = new System.Drawing.Size(75, 23);
+            this.buttonModify.TabIndex = 15;
+            this.buttonModify.Text = "Modificar";
+            this.buttonModify.UseVisualStyleBackColor = true;
+            this.buttonModify.Click += new System.EventHandler(this.buttonModify_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(556, 257);
+            this.Controls.Add(this.buttonModify);
             this.Controls.Add(this.textBoxPadre);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.buttonSave);
@@ -219,5 +231,6 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label labelError;
         private System.Windows.Forms.TextBox textBoxPadre;
+        private System.Windows.Forms.Button buttonModify;
     }
 }

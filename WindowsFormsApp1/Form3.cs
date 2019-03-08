@@ -92,5 +92,23 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void buttonModify_Click(object sender, EventArgs e)
+        {
+
+            string padre = textBoxPadre.Text;
+            string name = textDescription.Text;
+            string tipo = comboBox1.Text;
+            string size = textSize.Text;
+            string quantity = textQuantity.Text;
+            string weight = textKg.Text;
+            string price = textPrice.Text;
+
+            Product product = new Product(name, size, weight, quantity, price, DateTime.Now);
+            nuevaConexion.OpenConnection();
+            nuevaConexion.Update(product, padre);
+            MessageBox.Show("El producto: " + name + " se ha actualizado correctamente en la Base de datos");
+            nuevaConexion.CloseConnection();
+        }
     }
 }

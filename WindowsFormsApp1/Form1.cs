@@ -47,12 +47,11 @@ namespace WindowsFormsApp1
                         dataGridView1.Rows[i].Cells[0].Value = listaDatos.ElementAt(i).getName();
                         dataGridView1.Rows[i].Cells[1].Value = listaDatos.ElementAt(i).getSize();
                         dataGridView1.Rows[i].Cells[2].Value = listaDatos.ElementAt(i).getNow();
-                        dataGridView1.Rows[i].Cells[3].Value = listaDatos.ElementAt(i).getQuantity();
+                        dataGridView1.Rows[i].Cells[3].Value = listaDatos.ElementAt(i).getQuantity() + " Cajas";
                         dataGridView1.Rows[i].Cells[4].Value = listaDatos.ElementAt(i).getKg();
                         dataGridView1.Rows[i].Cells[5].Value = listaDatos.ElementAt(i).getPrice() + " Euros";
                         i++;
-                    }
-                    //dataGridView1.Rows[n].Cells[0].Value = listaDatos[0].ElementAt(0);              
+                    }        
                 }
             }
         }
@@ -103,7 +102,6 @@ namespace WindowsFormsApp1
             label2.Text = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
             listaDatos = nuevaConexion.SelectSubProduct(label2.Text);
 
-            int n = dataGridView1.Rows.Add();
             int i = 0;
             foreach (var item in listaDatos)
             {
@@ -144,6 +142,28 @@ namespace WindowsFormsApp1
         {
             this.clearDataGrid();
             this.loadGrid();
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            label2.Text = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            listaDatos = nuevaConexion.SelectSubProduct(label2.Text);
+        }
+
+        private void dataGridView1_CellContentDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            label2.Text = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            listaDatos = nuevaConexion.SelectSubProduct(label2.Text);
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

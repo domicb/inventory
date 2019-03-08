@@ -192,8 +192,51 @@ namespace WindowsFormsApp1
         }
 
         //Update statement
-        public void Update()
+        public int Update(Product product, string padre)
         {
+            string name = product.getName();
+            string size = product.getSize();
+            string quantity = product.getQuantity();
+            string kg = product.getKg();
+            string price = product.getPrice();
+            string idProduct = this.idProduct(name);
+            string query = "";
+
+            if (padre != "Producto Padre")
+            {
+                query = "UPDATE `mydb`.`subproduct`SET `name` = @name, `size` = @size,`kg` = @kg, `price` = @price WHERE `idproduct` = @idProduct";
+            }
+            else
+            {
+                query = "UPDATE `mydb`.`product`SET `name` = @name, `size` = @size,`kg` = @kg, `price` = @price WHERE `idproduct` = @idProduct";
+            }
+
+            if (this.OpenConnection() == true)
+            {
+                try
+                {
+
+                    //Create Command
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
+                        cmd.Parameters.Add("@size", MySqlDbType.VarChar).Value = size;
+                        cmd.Parameters.Add("@kg", MySqlDbType.Double).Value = kg;
+                        cmd.Parameters.Add("@price", MySqlDbType.Double).Value = price;
+                        return cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("error" + ex.Message);
+                    return -1;
+                }
+
+            }
+            else
+            {
+                return -1;
+            }
         }
 
         //Delete statement
@@ -217,8 +260,9 @@ namespace WindowsFormsApp1
                 MySqlDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    DateTime now = DateTime.Now;
-                    Product producto = new Product(dataReader["name"].ToString(), dataReader["size"].ToString(), dataReader["kg"].ToString(), dataReader["quantity"].ToString(), dataReader["price"].ToString(),now);
+                    string now = dataReader["dateIn"].ToString();
+                    DateTime ahora = Convert.ToDateTime(now);
+                    Product producto = new Product(dataReader["name"].ToString(), dataReader["size"].ToString(), dataReader["kg"].ToString(), dataReader["quantity"].ToString(), dataReader["price"].ToString(),ahora);
                     listProducts.Add(producto);
                 }
                 //close Data Reader
@@ -257,8 +301,9 @@ namespace WindowsFormsApp1
                 //Read the data and store them in the list      
                 while (dataReader.Read())
                 {
-                    DateTime now = DateTime.Now;
-                    Product producto = new Product(dataReader["name"].ToString(), dataReader["size"].ToString(), dataReader["kg"].ToString(), dataReader["quantity"].ToString(), dataReader["price"].ToString(), now);
+                    string now = dataReader["dateIn"].ToString();
+                    DateTime ahora = Convert.ToDateTime(now);
+                    Product producto = new Product(dataReader["name"].ToString(), dataReader["size"].ToString(), dataReader["kg"].ToString(), dataReader["quantity"].ToString(), dataReader["price"].ToString(), ahora);
                     list.Add(producto);
                 }
 
