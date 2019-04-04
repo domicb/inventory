@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxTipo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,21 +42,23 @@
             this.label6 = new System.Windows.Forms.Label();
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelError = new System.Windows.Forms.Label();
-            this.textBoxPadre = new System.Windows.Forms.TextBox();
             this.buttonModify = new System.Windows.Forms.Button();
+            this.comboBoxPadre = new System.Windows.Forms.ComboBox();
+            this.textBoxInfo = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // comboBoxTipo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxTipo.FormattingEnabled = true;
+            this.comboBoxTipo.Items.AddRange(new object[] {
             "Producto Padre",
             "Producto Hijo"});
-            this.comboBox1.Location = new System.Drawing.Point(106, 28);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxTipo.Location = new System.Drawing.Point(106, 28);
+            this.comboBoxTipo.Name = "comboBoxTipo";
+            this.comboBoxTipo.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxTipo.TabIndex = 0;
+            this.comboBoxTipo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -153,7 +155,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(410, 146);
+            this.buttonSave.Location = new System.Drawing.Point(468, 241);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(118, 55);
             this.buttonSave.TabIndex = 12;
@@ -169,16 +171,9 @@
             this.labelError.Size = new System.Drawing.Size(0, 13);
             this.labelError.TabIndex = 13;
             // 
-            // textBoxPadre
-            // 
-            this.textBoxPadre.Location = new System.Drawing.Point(250, 28);
-            this.textBoxPadre.Name = "textBoxPadre";
-            this.textBoxPadre.Size = new System.Drawing.Size(157, 20);
-            this.textBoxPadre.TabIndex = 14;
-            // 
             // buttonModify
             // 
-            this.buttonModify.Location = new System.Drawing.Point(430, 222);
+            this.buttonModify.Location = new System.Drawing.Point(377, 257);
             this.buttonModify.Name = "buttonModify";
             this.buttonModify.Size = new System.Drawing.Size(75, 23);
             this.buttonModify.TabIndex = 15;
@@ -186,13 +181,41 @@
             this.buttonModify.UseVisualStyleBackColor = true;
             this.buttonModify.Click += new System.EventHandler(this.buttonModify_Click);
             // 
+            // comboBoxPadre
+            // 
+            this.comboBoxPadre.FormattingEnabled = true;
+            this.comboBoxPadre.Location = new System.Drawing.Point(237, 143);
+            this.comboBoxPadre.Name = "comboBoxPadre";
+            this.comboBoxPadre.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxPadre.TabIndex = 16;
+            // 
+            // textBoxInfo
+            // 
+            this.textBoxInfo.Location = new System.Drawing.Point(377, 35);
+            this.textBoxInfo.Multiline = true;
+            this.textBoxInfo.Name = "textBoxInfo";
+            this.textBoxInfo.Size = new System.Drawing.Size(209, 200);
+            this.textBoxInfo.TabIndex = 17;
+            this.textBoxInfo.TextChanged += new System.EventHandler(this.textBoxInfo_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(407, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 13);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Información Adicional";
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 257);
+            this.ClientSize = new System.Drawing.Size(598, 310);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.textBoxInfo);
+            this.Controls.Add(this.comboBoxPadre);
             this.Controls.Add(this.buttonModify);
-            this.Controls.Add(this.textBoxPadre);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.label6);
@@ -206,7 +229,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textDescription);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxTipo);
             this.Name = "Form3";
             this.Text = "Form3";
             this.ResumeLayout(false);
@@ -216,7 +239,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxTipo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textDescription;
         private System.Windows.Forms.Label label2;
@@ -230,7 +253,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label labelError;
-        private System.Windows.Forms.TextBox textBoxPadre;
         private System.Windows.Forms.Button buttonModify;
+        private System.Windows.Forms.ComboBox comboBoxPadre;
+        private System.Windows.Forms.TextBox textBoxInfo;
+        private System.Windows.Forms.Label label7;
     }
 }

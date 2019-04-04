@@ -39,9 +39,10 @@
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Adicional = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mydbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mydbDataSet = new WindowsFormsApp1.mydbDataSet();
             this.label2 = new System.Windows.Forms.Label();
@@ -66,7 +67,7 @@
             this.buttonNuevo.Name = "buttonNuevo";
             this.buttonNuevo.Size = new System.Drawing.Size(113, 39);
             this.buttonNuevo.TabIndex = 0;
-            this.buttonNuevo.Text = "Nuevo Producto";
+            this.buttonNuevo.Text = "Nueva Entrada";
             this.buttonNuevo.UseVisualStyleBackColor = false;
             this.buttonNuevo.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -90,6 +91,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // toolTip1
             // 
@@ -107,12 +109,13 @@
             this.name,
             this.size,
             this.dateIn,
-            this.quantity,
+            this.Precio,
             this.kg,
-            this.price});
+            this.Cantidad,
+            this.Adicional});
             this.dataGridView1.Location = new System.Drawing.Point(49, 104);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(906, 584);
+            this.dataGridView1.Size = new System.Drawing.Size(943, 584);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -136,25 +139,28 @@
             // 
             this.dateIn.HeaderText = "Fecha Entrada";
             this.dateIn.Name = "dateIn";
-            this.dateIn.Width = 200;
             // 
-            // quantity
+            // Precio
             // 
-            this.quantity.HeaderText = "Cantidad";
-            this.quantity.Name = "quantity";
-            this.quantity.Width = 120;
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
             // 
             // kg
             // 
             this.kg.HeaderText = "Peso en Kg";
             this.kg.Name = "kg";
-            this.kg.Width = 120;
+            this.kg.Width = 80;
             // 
-            // price
+            // Cantidad
             // 
-            this.price.HeaderText = "precio";
-            this.price.Name = "price";
-            this.price.Width = 120;
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Adicional
+            // 
+            this.Adicional.HeaderText = "Adicional";
+            this.Adicional.Name = "Adicional";
+            this.Adicional.Width = 340;
             // 
             // mydbDataSetBindingSource
             // 
@@ -180,7 +186,7 @@
             // buttonConnect
             // 
             this.buttonConnect.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.buttonConnect.Location = new System.Drawing.Point(1099, 25);
+            this.buttonConnect.Location = new System.Drawing.Point(998, 41);
             this.buttonConnect.Name = "buttonConnect";
             this.buttonConnect.Size = new System.Drawing.Size(75, 23);
             this.buttonConnect.TabIndex = 7;
@@ -213,7 +219,7 @@
             this.productosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1406, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1134, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -234,7 +240,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1406, 750);
+            this.ClientSize = new System.Drawing.Size(1134, 749);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonConnect);
@@ -274,15 +280,16 @@
         private System.Windows.Forms.Button buttonConnect;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn size;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateIn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn size;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateIn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Adicional;
     }
 }
 

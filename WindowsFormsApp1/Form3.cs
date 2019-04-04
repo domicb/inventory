@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
         public Form3()
         {
             InitializeComponent();
-            comboBox1.SelectedIndex = 0;
+            comboBoxTipo.SelectedIndex = 0;
             ToolTip toolTip1 = new ToolTip();
 
             // Set up the delays for the ToolTip.
@@ -27,7 +27,7 @@ namespace WindowsFormsApp1
             toolTip1.ShowAlways = true;
 
             // Set up the ToolTip text for the Button and Checkbox.
-            toolTip1.SetToolTip(this.textBoxPadre, "Nombre del padre");
+            toolTip1.SetToolTip(this.comboBoxPadre, "Nombre del padre");
             
         }
 
@@ -38,13 +38,23 @@ namespace WindowsFormsApp1
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox1.Text == "Producto Hijo")
+            if(comboBoxTipo.Text == "Producto Hijo")
             {
-                textBoxPadre.Visible = true;            
+                comboBoxPadre.Visible = true;
+                List<Product> nuevalista = new List<Product>();
+                nuevalista = nuevaConexion.SelectProduct();
+                int contador = 0;
+                foreach (var item in nuevalista)
+                {                  
+                    comboBoxPadre.Items.Add(nuevalista.ElementAt(contador).getName());
+                    contador++;
+                }
+
+                //nuevaConexion.loadPadre();
             }
             else
             {
-                textBoxPadre.Visible = false;
+                comboBoxPadre.Visible = false;
             }
         }
 
@@ -57,20 +67,21 @@ namespace WindowsFormsApp1
         {
             if (textDescription.Text != "")
             {
-                string padre = textBoxPadre.Text;
+                string padre = comboBoxTipo.Text;
                 string name = textDescription.Text;
-                string tipo = comboBox1.Text;
+                string tipo = comboBoxTipo.Text;
                 string size = textSize.Text;
                 string quantity = textQuantity.Text;
                 string weight = textKg.Text;
                 string price = textPrice.Text;
-                Product product = new Product(name, size, weight, quantity, price, DateTime.Now);
+                string info = textBoxInfo.Text;
+               
+                Product product = new Product(name, size, weight, quantity, price, DateTime.Now, info);
 
                 nuevaConexion.OpenConnection();
                 nuevaConexion.Insert(product, padre);
                 MessageBox.Show("El producto: " + name + " se ha guardado en la Base de datos");
                 nuevaConexion.CloseConnection();
-
             }
             else
             {
@@ -96,19 +107,25 @@ namespace WindowsFormsApp1
         private void buttonModify_Click(object sender, EventArgs e)
         {
 
-            string padre = textBoxPadre.Text;
+            string padre = comboBoxPadre.Text;
             string name = textDescription.Text;
-            string tipo = comboBox1.Text;
+            string tipo = comboBoxTipo.Text;
             string size = textSize.Text;
             string quantity = textQuantity.Text;
             string weight = textKg.Text;
             string price = textPrice.Text;
+            string info = textBoxInfo.Text;
 
-            Product product = new Product(name, size, weight, quantity, price, DateTime.Now);
+            Product product = new Product(name, size, weight, quantity, price, DateTime.Now, info);
             nuevaConexion.OpenConnection();
             nuevaConexion.Update(product, padre);
             MessageBox.Show("El producto: " + name + " se ha actualizado correctamente en la Base de datos");
             nuevaConexion.CloseConnection();
+        }
+
+        private void textBoxInfo_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

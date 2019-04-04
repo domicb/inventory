@@ -21,8 +21,14 @@ namespace WindowsFormsApp1
         public FormLogin()
         {
             InitializeComponent();
-            this.loadGrid();
-            
+            this.loadGrid();          
+        }
+
+        public void Refrescar()
+        {
+            nuevaConexion.InsertCount("gamba");
+            nuevaConexion.InsertCount("hueva");
+            //nuevaConexion.InsertCount("cangrejo");
         }
 
         public void loadGrid()
@@ -47,9 +53,11 @@ namespace WindowsFormsApp1
                         dataGridView1.Rows[i].Cells[0].Value = listaDatos.ElementAt(i).getName();
                         dataGridView1.Rows[i].Cells[1].Value = listaDatos.ElementAt(i).getSize();
                         dataGridView1.Rows[i].Cells[2].Value = listaDatos.ElementAt(i).getNow();
-                        dataGridView1.Rows[i].Cells[3].Value = listaDatos.ElementAt(i).getQuantity() + " Cajas";
+                        dataGridView1.Rows[i].Cells[3].Value = listaDatos.ElementAt(i).getPrice() + " Euros";
                         dataGridView1.Rows[i].Cells[4].Value = listaDatos.ElementAt(i).getKg();
-                        dataGridView1.Rows[i].Cells[5].Value = listaDatos.ElementAt(i).getPrice() + " Euros";
+                        dataGridView1.Rows[i].Cells[5].Value = listaDatos.ElementAt(i).getQuantity() + " Cajas";
+                        dataGridView1.Rows[i].Cells[6].Value = listaDatos.ElementAt(i).getInfo();
+    
                         i++;
                     }        
                 }
@@ -70,8 +78,7 @@ namespace WindowsFormsApp1
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-            
+        {     
             label2.Text = nuevaConexion.getStatus(); 
         }
 
@@ -164,6 +171,11 @@ namespace WindowsFormsApp1
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Refrescar();
         }
     }
 }

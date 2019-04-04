@@ -12,12 +12,12 @@ namespace WindowsFormsApp1
         string size;
         string quantity;
         string dateOut;
-        string kg;
         string price;
+        string info;
         private string weight;
         private DateTime now;
 
-        public Product(string name, string size, string weight, string quantity, string price, DateTime now)
+        public Product(string name, string size, string weight, string quantity, string price, DateTime now, string info)
         {
             this.name = name;
             this.size = size;
@@ -25,6 +25,12 @@ namespace WindowsFormsApp1
             this.quantity = quantity;
             this.price = price;
             this.now = now;
+            this.info = info;
+        }
+
+        public string getInfo()
+        {
+            return info;
         }
 
         public string getName()
@@ -39,7 +45,7 @@ namespace WindowsFormsApp1
 
         public string getKg()
         {
-            return kg;
+            return weight;
         }
 
         public string getPrice()
