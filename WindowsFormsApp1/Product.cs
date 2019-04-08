@@ -14,10 +14,12 @@ namespace WindowsFormsApp1
         string dateOut;
         string price;
         string info;
+        string lote;
+        string idtipo;
         private string weight;
         private DateTime now;
 
-        public Product(string name, string size, string weight, string quantity, string price, DateTime now, string info)
+        public Product(string name, string size, string weight, string quantity, string price, DateTime now, string info, string lote, string Tipo)
         {
             this.name = name;
             this.size = size;
@@ -26,6 +28,18 @@ namespace WindowsFormsApp1
             this.price = price;
             this.now = now;
             this.info = info;
+            this.lote = lote;
+            this.idtipo = Tipo;
+        }
+
+        public string getTipo()
+        {
+            return idtipo;
+        }
+
+        public string getLote()
+        {
+            return lote;
         }
 
         public string getInfo()

@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:Setup2"
+"ProjectName" = "8:Install"
 "LanguageId" = "3:3082"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:3082"
@@ -15,44 +15,26 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_12F34800781D2A07BC714F4A0BFDE30C"
-        "OwnerKey" = "8:_CE6E3397B7B24D568ED34499B3BF0022"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_12F34800781D2A07BC714F4A0BFDE30C"
-        "OwnerKey" = "8:_FA14ACE892D54F25A3F867278673B649"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_12F34800781D2A07BC714F4A0BFDE30C"
+        "MsmKey" = "8:_8FE97D0069B2E4D82AF6D8F9463321C2"
         "OwnerKey" = "8:_AB786629B0984A3FBF57A5E0E0C7C4DA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_12F34800781D2A07BC714F4A0BFDE30C"
-        "OwnerKey" = "8:_BB4B98AF209AA4797073634B84636341"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_14BB2DDDF586F663F47924B6BC2B5605"
-        "OwnerKey" = "8:_CE6E3397B7B24D568ED34499B3BF0022"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_14BB2DDDF586F663F47924B6BC2B5605"
+        "MsmKey" = "8:_8FE97D0069B2E4D82AF6D8F9463321C2"
         "OwnerKey" = "8:_FA14ACE892D54F25A3F867278673B649"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_14BB2DDDF586F663F47924B6BC2B5605"
-        "OwnerKey" = "8:_AB786629B0984A3FBF57A5E0E0C7C4DA"
+        "MsmKey" = "8:_8FE97D0069B2E4D82AF6D8F9463321C2"
+        "OwnerKey" = "8:_CE6E3397B7B24D568ED34499B3BF0022"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8FE97D0069B2E4D82AF6D8F9463321C2"
+        "OwnerKey" = "8:_D5BCC746BEFA882B59EE5B37E25085AE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -63,26 +45,44 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_BB4B98AF209AA4797073634B84636341"
-        "OwnerKey" = "8:_CE6E3397B7B24D568ED34499B3BF0022"
+        "MsmKey" = "8:_C3829DD79A2D01F88B3F6E5AD34CE08D"
+        "OwnerKey" = "8:_AB786629B0984A3FBF57A5E0E0C7C4DA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_BB4B98AF209AA4797073634B84636341"
+        "MsmKey" = "8:_C3829DD79A2D01F88B3F6E5AD34CE08D"
         "OwnerKey" = "8:_FA14ACE892D54F25A3F867278673B649"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_BB4B98AF209AA4797073634B84636341"
-        "OwnerKey" = "8:_AB786629B0984A3FBF57A5E0E0C7C4DA"
+        "MsmKey" = "8:_C3829DD79A2D01F88B3F6E5AD34CE08D"
+        "OwnerKey" = "8:_CE6E3397B7B24D568ED34499B3BF0022"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_CE6E3397B7B24D568ED34499B3BF0022"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D5BCC746BEFA882B59EE5B37E25085AE"
+        "OwnerKey" = "8:_AB786629B0984A3FBF57A5E0E0C7C4DA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D5BCC746BEFA882B59EE5B37E25085AE"
+        "OwnerKey" = "8:_FA14ACE892D54F25A3F867278673B649"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D5BCC746BEFA882B59EE5B37E25085AE"
+        "OwnerKey" = "8:_CE6E3397B7B24D568ED34499B3BF0022"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -94,7 +94,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_12F34800781D2A07BC714F4A0BFDE30C"
+        "OwnerKey" = "8:_CE6E3397B7B24D568ED34499B3BF0022"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -112,19 +112,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_CE6E3397B7B24D568ED34499B3BF0022"
+        "OwnerKey" = "8:_C3829DD79A2D01F88B3F6E5AD34CE08D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_14BB2DDDF586F663F47924B6BC2B5605"
+        "OwnerKey" = "8:_D5BCC746BEFA882B59EE5B37E25085AE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BB4B98AF209AA4797073634B84636341"
+        "OwnerKey" = "8:_8FE97D0069B2E4D82AF6D8F9463321C2"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -145,6 +145,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -161,6 +177,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -190,14 +214,14 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_12F34800781D2A07BC714F4A0BFDE30C"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8FE97D0069B2E4D82AF6D8F9463321C2"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_12F34800781D2A07BC714F4A0BFDE30C"
+                    "_8FE97D0069B2E4D82AF6D8F9463321C2"
                     {
                     "Name" = "8:Google.Protobuf.dll"
                     "Attributes" = "3:512"
@@ -221,14 +245,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_14BB2DDDF586F663F47924B6BC2B5605"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C3829DD79A2D01F88B3F6E5AD34CE08D"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_14BB2DDDF586F663F47924B6BC2B5605"
+                    "_C3829DD79A2D01F88B3F6E5AD34CE08D"
                     {
                     "Name" = "8:System.Net.Http.dll"
                     "Attributes" = "3:512"
@@ -252,14 +276,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BB4B98AF209AA4797073634B84636341"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D5BCC746BEFA882B59EE5B37E25085AE"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:MySql.Data, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_BB4B98AF209AA4797073634B84636341"
+                    "_D5BCC746BEFA882B59EE5B37E25085AE"
                     {
                     "Name" = "8:MySql.Data.dll"
                     "Attributes" = "3:512"
@@ -340,7 +364,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Setup2"
         "ProductCode" = "8:{DC136B32-34FC-4777-ABB5-EAB1ACF1D91D}"
-        "PackageCode" = "8:{AA3073C0-13D1-44A7-9AAB-D56827C4BC67}"
+        "PackageCode" = "8:{FFC379C3-E0F0-41BA-A693-612348998F53}"
         "UpgradeCode" = "8:{CA4A9DAA-FBCE-4D8D-82FD-A7F94C201746}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"

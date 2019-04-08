@@ -26,8 +26,8 @@ namespace WindowsFormsApp1
 
         public void Refrescar()
         {
-            nuevaConexion.InsertCount("gamba");
-            nuevaConexion.InsertCount("hueva");
+            //nuevaConexion.InsertCount("gamba");
+            //nuevaConexion.InsertCount("hueva");
             //nuevaConexion.InsertCount("cangrejo");
         }
 
@@ -35,14 +35,14 @@ namespace WindowsFormsApp1
         {
             if (nuevaConexion.getStatus() == "Open")
             {
-                listaDatos = nuevaConexion.SelectProduct();
+                listaDatos = nuevaConexion.SelectSubProduct();
                 label2.Text = listaDatos[0].ToString();
             }
             else
             {
                 if (nuevaConexion.OpenConnection() == true)
                 {
-                    listaDatos = nuevaConexion.SelectProduct();
+                    listaDatos = nuevaConexion.SelectSubProduct();
                     this.clearDataGrid();
                     int n = listaDatos.Count();   
                     int i = 0;
@@ -52,11 +52,9 @@ namespace WindowsFormsApp1
                         dataGridView1.Rows.Add();
                         dataGridView1.Rows[i].Cells[0].Value = listaDatos.ElementAt(i).getName();
                         dataGridView1.Rows[i].Cells[1].Value = listaDatos.ElementAt(i).getSize();
-                        dataGridView1.Rows[i].Cells[2].Value = listaDatos.ElementAt(i).getNow();
-                        dataGridView1.Rows[i].Cells[3].Value = listaDatos.ElementAt(i).getPrice() + " Euros";
-                        dataGridView1.Rows[i].Cells[4].Value = listaDatos.ElementAt(i).getKg();
-                        dataGridView1.Rows[i].Cells[5].Value = listaDatos.ElementAt(i).getQuantity() + " Cajas";
-                        dataGridView1.Rows[i].Cells[6].Value = listaDatos.ElementAt(i).getInfo();
+                        dataGridView1.Rows[i].Cells[2].Value = listaDatos.ElementAt(i).getKg();
+                        dataGridView1.Rows[i].Cells[3].Value = listaDatos.ElementAt(i).getQuantity() + " Cajas";
+                        dataGridView1.Rows[i].Cells[4].Value = listaDatos.ElementAt(i).getInfo();
     
                         i++;
                     }        
@@ -89,7 +87,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form3 newProduct = new Form3();
+            Form2 newProduct = new Form2();
             newProduct.Show();
         }
 

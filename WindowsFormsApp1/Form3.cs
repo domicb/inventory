@@ -15,47 +15,13 @@ namespace WindowsFormsApp1
         DBConnect nuevaConexion = new DBConnect();
         public Form3()
         {
-            InitializeComponent();
-            comboBoxTipo.SelectedIndex = 0;
-            ToolTip toolTip1 = new ToolTip();
-
-            // Set up the delays for the ToolTip.
-            toolTip1.AutoPopDelay = 5000;
-            toolTip1.InitialDelay = 100;
-            toolTip1.ReshowDelay = 500;
-            // Force the ToolTip text to be displayed whether or not the form is active.
-            toolTip1.ShowAlways = true;
-
-            // Set up the ToolTip text for the Button and Checkbox.
-            toolTip1.SetToolTip(this.comboBoxPadre, "Nombre del padre");
+            InitializeComponent();    
             
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(comboBoxTipo.Text == "Producto Hijo")
-            {
-                comboBoxPadre.Visible = true;
-                List<Product> nuevalista = new List<Product>();
-                nuevalista = nuevaConexion.SelectProduct();
-                int contador = 0;
-                foreach (var item in nuevalista)
-                {                  
-                    comboBoxPadre.Items.Add(nuevalista.ElementAt(contador).getName());
-                    contador++;
-                }
-
-                //nuevaConexion.loadPadre();
-            }
-            else
-            {
-                comboBoxPadre.Visible = false;
-            }
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -66,21 +32,25 @@ namespace WindowsFormsApp1
         private void buttonSave_Click(object sender, EventArgs e)
         {
             if (textDescription.Text != "")
-            {
-                string padre = comboBoxTipo.Text;
+            {               
                 string name = textDescription.Text;
-                string tipo = comboBoxTipo.Text;
                 string size = textSize.Text;
-                string quantity = textQuantity.Text;
-                string weight = textKg.Text;
-                string price = textPrice.Text;
-                string info = textBoxInfo.Text;
-               
-                Product product = new Product(name, size, weight, quantity, price, DateTime.Now, info);
+                string quantity = textCantidad.Text;
+                string weight = textPeso.Text;
+                //int peso = int.Parse(weight);
+                //int cantidad = int.Parse(quantity);
+                //int media = peso / cantidad;
+                string price = textBoxPrecio.Text;
+                string info = textBoxInfo.Text;             
+                string lote = textBoxLote.Text;
+                string tipo = comboBoxTipo.SelectedItem.ToString();
+                tipo = nuevaConexion.idTipo(tipo);
+                int idTipo = int.Parse(tipo);
+                Product product = new Product(name, size, weight, quantity, price, DateTime.Now, info, lote, tipo);
 
                 nuevaConexion.OpenConnection();
-                nuevaConexion.Insert(product, padre);
-                MessageBox.Show("El producto: " + name + " se ha guardado en la Base de datos");
+                nuevaConexion.Insert(product,idTipo);
+                MessageBox.Show("El producto: " + name + " se ha registrado correctamente en la Base de datos");
                 nuevaConexion.CloseConnection();
             }
             else
@@ -91,7 +61,16 @@ namespace WindowsFormsApp1
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-
+            string quantity = textCantidad.Text;
+            string weight = textPeso.Text;
+            if(textCantidad.Text != "" && textPeso.Text !="")
+            {
+                LabelPesoMedio.BackColor = Color.Green;
+                int peso = Int32.Parse(weight);
+                int cantidad = Int32.Parse(quantity);
+                int media = peso / cantidad;
+                LabelPesoMedio.Text = media.ToString();
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -107,18 +86,20 @@ namespace WindowsFormsApp1
         private void buttonModify_Click(object sender, EventArgs e)
         {
 
-            string padre = comboBoxPadre.Text;
+            //string padre = comboBoxPadre.Text;
             string name = textDescription.Text;
-            string tipo = comboBoxTipo.Text;
+            //string tipo = comboBoxTipo.Text;
             string size = textSize.Text;
-            string quantity = textQuantity.Text;
-            string weight = textKg.Text;
-            string price = textPrice.Text;
+            string quantity = textCantidad.Text;
+            string weight = textPeso.Text;
+            string price = "No calculado";
             string info = textBoxInfo.Text;
+            string lote = textBoxLote.Text;
+            string tipo = comboBoxTipo.Text;
 
-            Product product = new Product(name, size, weight, quantity, price, DateTime.Now, info);
+            Product product = new Product(name, size, weight, quantity, price, DateTime.Now, info, lote,tipo);
             nuevaConexion.OpenConnection();
-            nuevaConexion.Update(product, padre);
+            nuevaConexion.Update(product);
             MessageBox.Show("El producto: " + name + " se ha actualizado correctamente en la Base de datos");
             nuevaConexion.CloseConnection();
         }
@@ -126,6 +107,23 @@ namespace WindowsFormsApp1
         private void textBoxInfo_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            List<tipo> nuevalista = new List<tipo>();
+            nuevalista = nuevaConexion.SelectTipo();
+            int contador = 0;
+            foreach (var item in nuevalista)
+            {
+                comboBoxTipo.Items.Add(nuevalista.ElementAt(contador).getipo());
+                contador++;
+            }
         }
     }
 }
