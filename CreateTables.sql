@@ -77,17 +77,28 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `product` (
   `idproduct` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL DEFAULT NULL,
-  `size` VARCHAR(45) NULL DEFAULT NULL,
-  `quantity` VARCHAR(500) NULL DEFAULT NULL,
-  `dateIn` DATE NULL DEFAULT NULL,
-  `dateOut` DATE NULL DEFAULT NULL,
-  `kg` DOUBLE NULL DEFAULT NULL,
-  `price` DOUBLE NULL DEFAULT NULL,
+  `dateIn` VARCHAR(10) NULL DEFAULT NULL,
   `info` VARCHAR(500) NULL DEFAULT NULL,
+  `nbultos` VARCHAR(45) NULL,
+  `peso` VARCHAR(45) NULL,
   PRIMARY KEY (`idproduct`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = utf8;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `tipoProducto`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `tipoProducto` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `tipoProducto` (
+  `idtipoProducto` INT NOT NULL AUTO_INCREMENT,
+  `tipo` VARCHAR(45) NULL,
+  PRIMARY KEY (`idtipoProducto`))
+ENGINE = InnoDB;
 
 SHOW WARNINGS;
 
@@ -108,9 +119,11 @@ CREATE TABLE IF NOT EXISTS `subproduct` (
   `dateIn` DATE NULL DEFAULT NULL,
   `dateOut` DATE NULL DEFAULT NULL,
   `info` VARCHAR(500) NULL DEFAULT NULL,
+  `lote` VARCHAR(45) NULL DEFAULT NULL,
+  `tipoProducto_idtipoProducto` INT NOT NULL,
   PRIMARY KEY (`idsubProduct`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 17
+AUTO_INCREMENT = 65
 DEFAULT CHARACTER SET = utf8;
 
 SHOW WARNINGS;
