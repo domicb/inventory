@@ -85,7 +85,11 @@
             // textPeso
             // 
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.textPeso.Location = new System.Drawing.Point(298, 215);
+=======
+            this.textPeso.Location = new System.Drawing.Point(307, 215);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
 =======
             this.textPeso.Location = new System.Drawing.Point(307, 215);
 >>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
@@ -97,7 +101,11 @@
             // 
             this.label4.AutoSize = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.label4.Location = new System.Drawing.Point(330, 199);
+=======
+            this.label4.Location = new System.Drawing.Point(321, 199);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
 =======
             this.label4.Location = new System.Drawing.Point(321, 199);
 >>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
@@ -118,7 +126,11 @@
             // 
             this.label6.AutoSize = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.label6.Location = new System.Drawing.Point(190, 199);
+=======
+            this.label6.Location = new System.Drawing.Point(207, 199);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
 =======
             this.label6.Location = new System.Drawing.Point(207, 199);
 >>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
@@ -131,7 +143,11 @@
             // buttonSave
             // 
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.buttonSave.Location = new System.Drawing.Point(495, 241);
+=======
+            this.buttonSave.Location = new System.Drawing.Point(487, 241);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
 =======
             this.buttonSave.Location = new System.Drawing.Point(487, 241);
 >>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
@@ -153,7 +169,11 @@
             // textBoxInfo
             // 
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.textBoxInfo.Location = new System.Drawing.Point(444, 39);
+=======
+            this.textBoxInfo.Location = new System.Drawing.Point(436, 39);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
 =======
             this.textBoxInfo.Location = new System.Drawing.Point(436, 39);
 >>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
@@ -167,7 +187,11 @@
             // 
             this.label7.AutoSize = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.label7.Location = new System.Drawing.Point(492, 23);
+=======
+            this.label7.Location = new System.Drawing.Point(497, 23);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
 =======
             this.label7.Location = new System.Drawing.Point(497, 23);
 >>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
@@ -180,7 +204,11 @@
             // 
             this.label8.AutoSize = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.label8.Location = new System.Drawing.Point(236, 262);
+=======
+            this.label8.Location = new System.Drawing.Point(237, 262);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
 =======
             this.label8.Location = new System.Drawing.Point(237, 262);
 >>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
@@ -193,7 +221,11 @@
             // 
             this.LabelPesoMedio.AutoSize = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.LabelPesoMedio.Location = new System.Drawing.Point(262, 283);
+=======
+            this.LabelPesoMedio.Location = new System.Drawing.Point(258, 283);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
 =======
             this.LabelPesoMedio.Location = new System.Drawing.Point(258, 283);
 >>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
@@ -206,7 +238,11 @@
             // 
             this.label9.AutoSize = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.label9.Location = new System.Drawing.Point(330, 135);
+=======
+            this.label9.Location = new System.Drawing.Point(347, 136);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
 =======
             this.label9.Location = new System.Drawing.Point(347, 136);
 >>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
@@ -218,7 +254,11 @@
             // textBoxLote
             // 
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.textBoxLote.Location = new System.Drawing.Point(298, 151);
+=======
+            this.textBoxLote.Location = new System.Drawing.Point(307, 152);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
 =======
             this.textBoxLote.Location = new System.Drawing.Point(307, 152);
 >>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
@@ -229,7 +269,11 @@
             // textBoxPrecio
             // 
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.textBoxPrecio.Location = new System.Drawing.Point(177, 151);
+=======
+            this.textBoxPrecio.Location = new System.Drawing.Point(177, 152);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
 =======
             this.textBoxPrecio.Location = new System.Drawing.Point(177, 152);
 >>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
@@ -241,7 +285,11 @@
             // 
             this.labelPrecio.AutoSize = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.labelPrecio.Location = new System.Drawing.Point(202, 135);
+=======
+            this.labelPrecio.Location = new System.Drawing.Point(218, 136);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
 =======
             this.labelPrecio.Location = new System.Drawing.Point(218, 136);
 >>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
@@ -262,7 +310,11 @@
             // 
             this.label1.AutoSize = true;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.label1.Location = new System.Drawing.Point(47, 135);
+=======
+            this.label1.Location = new System.Drawing.Point(38, 135);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
 =======
             this.label1.Location = new System.Drawing.Point(38, 135);
 >>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
@@ -276,7 +328,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(689, 310);
+=======
+            this.ClientSize = new System.Drawing.Size(664, 310);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
 =======
             this.ClientSize = new System.Drawing.Size(664, 310);
 >>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
