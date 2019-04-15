@@ -84,7 +84,11 @@
             // 
             // textPeso
             // 
-            this.textPeso.Location = new System.Drawing.Point(258, 215);
+<<<<<<< HEAD
+            this.textPeso.Location = new System.Drawing.Point(298, 215);
+=======
+            this.textPeso.Location = new System.Drawing.Point(307, 215);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
             this.textPeso.Name = "textPeso";
             this.textPeso.Size = new System.Drawing.Size(100, 20);
             this.textPeso.TabIndex = 6;
@@ -92,7 +96,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(270, 199);
+<<<<<<< HEAD
+            this.label4.Location = new System.Drawing.Point(330, 199);
+=======
+            this.label4.Location = new System.Drawing.Point(321, 199);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 13);
             this.label4.TabIndex = 7;
@@ -100,7 +108,7 @@
             // 
             // textCantidad
             // 
-            this.textCantidad.Location = new System.Drawing.Point(138, 215);
+            this.textCantidad.Location = new System.Drawing.Point(177, 215);
             this.textCantidad.Name = "textCantidad";
             this.textCantidad.Size = new System.Drawing.Size(100, 20);
             this.textCantidad.TabIndex = 10;
@@ -109,7 +117,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(160, 199);
+<<<<<<< HEAD
+            this.label6.Location = new System.Drawing.Point(190, 199);
+=======
+            this.label6.Location = new System.Drawing.Point(207, 199);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(48, 13);
             this.label6.TabIndex = 11;
@@ -118,7 +130,11 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(436, 241);
+<<<<<<< HEAD
+            this.buttonSave.Location = new System.Drawing.Point(495, 241);
+=======
+            this.buttonSave.Location = new System.Drawing.Point(487, 241);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(118, 55);
             this.buttonSave.TabIndex = 12;
@@ -136,7 +152,11 @@
             // 
             // textBoxInfo
             // 
-            this.textBoxInfo.Location = new System.Drawing.Point(377, 35);
+<<<<<<< HEAD
+            this.textBoxInfo.Location = new System.Drawing.Point(444, 39);
+=======
+            this.textBoxInfo.Location = new System.Drawing.Point(436, 39);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
             this.textBoxInfo.Multiline = true;
             this.textBoxInfo.Name = "textBoxInfo";
             this.textBoxInfo.Size = new System.Drawing.Size(209, 200);
@@ -146,7 +166,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(433, 9);
+<<<<<<< HEAD
+            this.label7.Location = new System.Drawing.Point(492, 23);
+=======
+            this.label7.Location = new System.Drawing.Point(497, 23);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(108, 13);
             this.label7.TabIndex = 18;
@@ -155,7 +179,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(171, 253);
+<<<<<<< HEAD
+            this.label8.Location = new System.Drawing.Point(236, 262);
+=======
+            this.label8.Location = new System.Drawing.Point(237, 262);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(106, 13);
             this.label8.TabIndex = 21;
@@ -164,7 +192,11 @@
             // LabelPesoMedio
             // 
             this.LabelPesoMedio.AutoSize = true;
-            this.LabelPesoMedio.Location = new System.Drawing.Point(202, 283);
+<<<<<<< HEAD
+            this.LabelPesoMedio.Location = new System.Drawing.Point(262, 283);
+=======
+            this.LabelPesoMedio.Location = new System.Drawing.Point(258, 283);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
             this.LabelPesoMedio.Name = "LabelPesoMedio";
             this.LabelPesoMedio.Size = new System.Drawing.Size(53, 13);
             this.LabelPesoMedio.TabIndex = 22;
@@ -173,7 +205,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(295, 135);
+<<<<<<< HEAD
+            this.label9.Location = new System.Drawing.Point(330, 135);
+=======
+            this.label9.Location = new System.Drawing.Point(347, 136);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(28, 13);
             this.label9.TabIndex = 23;
@@ -181,14 +217,22 @@
             // 
             // textBoxLote
             // 
-            this.textBoxLote.Location = new System.Drawing.Point(258, 151);
+<<<<<<< HEAD
+            this.textBoxLote.Location = new System.Drawing.Point(298, 151);
+=======
+            this.textBoxLote.Location = new System.Drawing.Point(307, 152);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
             this.textBoxLote.Name = "textBoxLote";
             this.textBoxLote.Size = new System.Drawing.Size(100, 20);
             this.textBoxLote.TabIndex = 24;
             // 
             // textBoxPrecio
             // 
-            this.textBoxPrecio.Location = new System.Drawing.Point(138, 151);
+<<<<<<< HEAD
+            this.textBoxPrecio.Location = new System.Drawing.Point(177, 151);
+=======
+            this.textBoxPrecio.Location = new System.Drawing.Point(177, 152);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
             this.textBoxPrecio.Name = "textBoxPrecio";
             this.textBoxPrecio.Size = new System.Drawing.Size(100, 20);
             this.textBoxPrecio.TabIndex = 25;
@@ -196,7 +240,11 @@
             // labelPrecio
             // 
             this.labelPrecio.AutoSize = true;
-            this.labelPrecio.Location = new System.Drawing.Point(171, 135);
+<<<<<<< HEAD
+            this.labelPrecio.Location = new System.Drawing.Point(202, 135);
+=======
+            this.labelPrecio.Location = new System.Drawing.Point(218, 136);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
             this.labelPrecio.Name = "labelPrecio";
             this.labelPrecio.Size = new System.Drawing.Size(37, 13);
             this.labelPrecio.TabIndex = 26;
@@ -205,15 +253,19 @@
             // comboBoxTipo
             // 
             this.comboBoxTipo.FormattingEnabled = true;
-            this.comboBoxTipo.Location = new System.Drawing.Point(12, 179);
+            this.comboBoxTipo.Location = new System.Drawing.Point(12, 151);
             this.comboBoxTipo.Name = "comboBoxTipo";
-            this.comboBoxTipo.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxTipo.Size = new System.Drawing.Size(159, 21);
             this.comboBoxTipo.TabIndex = 27;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 160);
+<<<<<<< HEAD
+            this.label1.Location = new System.Drawing.Point(47, 135);
+=======
+            this.label1.Location = new System.Drawing.Point(38, 135);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 13);
             this.label1.TabIndex = 28;
@@ -223,7 +275,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(598, 310);
+<<<<<<< HEAD
+            this.ClientSize = new System.Drawing.Size(689, 310);
+=======
+            this.ClientSize = new System.Drawing.Size(664, 310);
+>>>>>>> 51c25500063bc9654104e92f193a79d98d0c51f9
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxTipo);
             this.Controls.Add(this.labelPrecio);

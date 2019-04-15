@@ -36,20 +36,19 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.mydbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mydbDataSet = new WindowsFormsApp1.mydbDataSet();
-            this.label2 = new System.Windows.Forms.Label();
-            this.buttonConnect = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Adicional = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mydbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mydbDataSet = new WindowsFormsApp1.mydbDataSet();
+            this.label2 = new System.Windows.Forms.Label();
+            this.buttonConnect = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).BeginInit();
@@ -118,6 +117,36 @@
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick_1);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
+            // name
+            // 
+            this.name.FillWeight = 140F;
+            this.name.HeaderText = "Descripción";
+            this.name.Name = "name";
+            this.name.Width = 180;
+            // 
+            // size
+            // 
+            this.size.HeaderText = "Tamaño";
+            this.size.Name = "size";
+            this.size.Width = 120;
+            // 
+            // kg
+            // 
+            this.kg.HeaderText = "Peso Neto Kg";
+            this.kg.Name = "kg";
+            this.kg.Width = 80;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Adicional
+            // 
+            this.Adicional.HeaderText = "Adicional";
+            this.Adicional.Name = "Adicional";
+            this.Adicional.Width = 500;
+            // 
             // mydbDataSetBindingSource
             // 
             this.mydbDataSetBindingSource.DataSource = this.mydbDataSet;
@@ -149,15 +178,6 @@
             this.buttonConnect.Text = "Conectar";
             this.buttonConnect.UseVisualStyleBackColor = false;
             this.buttonConnect.Click += new System.EventHandler(this.buttonConnect_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1006, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "label3";
             // 
             // pictureBox1
             // 
@@ -192,43 +212,12 @@
             this.productosToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.productosToolStripMenuItem.Text = "Productos";
             // 
-            // name
-            // 
-            this.name.FillWeight = 140F;
-            this.name.HeaderText = "Descripción";
-            this.name.Name = "name";
-            this.name.Width = 180;
-            // 
-            // size
-            // 
-            this.size.HeaderText = "Tamaño";
-            this.size.Name = "size";
-            this.size.Width = 120;
-            // 
-            // kg
-            // 
-            this.kg.HeaderText = "Peso Neto Kg";
-            this.kg.Name = "kg";
-            this.kg.Width = 80;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // Adicional
-            // 
-            this.Adicional.HeaderText = "Adicional";
-            this.Adicional.Name = "Adicional";
-            this.Adicional.Width = 500;
-            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 749);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonConnect);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
@@ -264,7 +253,6 @@
         private mydbDataSet mydbDataSet;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonConnect;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
