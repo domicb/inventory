@@ -7,6 +7,7 @@ C:\Users\domicb\source\repos\MariscosCarrillo\WindowsFormsApp1\bin\Debug\MySql.D
 C:\Users\domicb\source\repos\MariscosCarrillo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormLogin.resources
 C:\Users\domicb\source\repos\MariscosCarrillo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form2.resources
 C:\Users\domicb\source\repos\MariscosCarrillo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form3.resources
+C:\Users\domicb\source\repos\MariscosCarrillo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form4.resources
 C:\Users\domicb\source\repos\MariscosCarrillo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
 C:\Users\domicb\source\repos\MariscosCarrillo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
 C:\Users\domicb\source\repos\MariscosCarrillo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache

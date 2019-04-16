@@ -26,9 +26,10 @@ namespace WindowsFormsApp1
 
         public void Refrescar()
         {
-            //nuevaConexion.InsertCount("gamba");
-            //nuevaConexion.InsertCount("hueva");
-            //nuevaConexion.InsertCount("cangrejo");
+           for(int i=0; i < 29; i++)
+            {
+                nuevaConexion.InsertCount(i);
+            }
         }
 
         public void loadGrid()
@@ -87,7 +88,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 newProduct = new Form2();
+            Form3 newProduct = new Form3();
             newProduct.Show();
         }
 
@@ -174,6 +175,18 @@ namespace WindowsFormsApp1
         private void button2_Click(object sender, EventArgs e)
         {
             this.Refrescar();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Form2 newPro = new Form2();
+            newPro.Show();
+        }
+
+        private void buttonSalida_Click(object sender, EventArgs e)
+        {
+            Form4 newSalida = new Form4();
+            newSalida.Show();
         }
     }
 }

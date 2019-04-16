@@ -32,10 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.buttonNuevo = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Adicional = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mydbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mydbDataSet = new WindowsFormsApp1.mydbDataSet();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,11 +49,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Adicional = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonSalida = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).BeginInit();
@@ -61,7 +62,7 @@
             // 
             this.buttonNuevo.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonNuevo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonNuevo.Location = new System.Drawing.Point(594, 59);
+            this.buttonNuevo.Location = new System.Drawing.Point(400, 59);
             this.buttonNuevo.Name = "buttonNuevo";
             this.buttonNuevo.Size = new System.Drawing.Size(113, 39);
             this.buttonNuevo.TabIndex = 0;
@@ -79,17 +80,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Este producto es propiedad de Mariscos Carrillo bajo licencia GLP domicb@";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.Info;
-            this.button2.Location = new System.Drawing.Point(420, 59);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 39);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // toolTip1
             // 
@@ -117,6 +107,36 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick_1);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // name
+            // 
+            this.name.FillWeight = 140F;
+            this.name.HeaderText = "Descripción";
+            this.name.Name = "name";
+            this.name.Width = 180;
+            // 
+            // size
+            // 
+            this.size.HeaderText = "Tamaño";
+            this.size.Name = "size";
+            this.size.Width = 120;
+            // 
+            // kg
+            // 
+            this.kg.HeaderText = "Peso Neto Kg";
+            this.kg.Name = "kg";
+            this.kg.Width = 80;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Adicional
+            // 
+            this.Adicional.HeaderText = "Adicional";
+            this.Adicional.Name = "Adicional";
+            this.Adicional.Width = 500;
             // 
             // mydbDataSetBindingSource
             // 
@@ -155,9 +175,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(1006, 25);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 8;
-            this.label3.Text = "label3";
+            this.label3.Text = "Estado";
             // 
             // pictureBox1
             // 
@@ -192,47 +212,42 @@
             this.productosToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.productosToolStripMenuItem.Text = "Productos";
             // 
-            // name
+            // button1
             // 
-            this.name.FillWeight = 140F;
-            this.name.HeaderText = "Descripción";
-            this.name.Name = "name";
-            this.name.Width = 180;
+            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(539, 59);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(113, 39);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Nuevo Cliente";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // size
+            // buttonSalida
             // 
-            this.size.HeaderText = "Tamaño";
-            this.size.Name = "size";
-            this.size.Width = 120;
-            // 
-            // kg
-            // 
-            this.kg.HeaderText = "Peso Neto Kg";
-            this.kg.Name = "kg";
-            this.kg.Width = 80;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // Adicional
-            // 
-            this.Adicional.HeaderText = "Adicional";
-            this.Adicional.Name = "Adicional";
-            this.Adicional.Width = 500;
+            this.buttonSalida.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonSalida.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonSalida.Location = new System.Drawing.Point(674, 59);
+            this.buttonSalida.Name = "buttonSalida";
+            this.buttonSalida.Size = new System.Drawing.Size(113, 39);
+            this.buttonSalida.TabIndex = 12;
+            this.buttonSalida.Text = "Registrar Salida";
+            this.buttonSalida.UseVisualStyleBackColor = false;
+            this.buttonSalida.Click += new System.EventHandler(this.buttonSalida_Click);
             // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 749);
+            this.Controls.Add(this.buttonSalida);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonConnect);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonNuevo);
             this.Controls.Add(this.menuStrip1);
@@ -256,7 +271,6 @@
 
         private System.Windows.Forms.Button buttonNuevo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -274,6 +288,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn kg;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Adicional;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonSalida;
     }
 }
 

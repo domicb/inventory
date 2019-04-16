@@ -31,15 +31,23 @@ namespace WindowsFormsApp1
 
         private void buttonSaveRegister_Click(object sender, EventArgs e)
         {
-            string name = textBoxProviene.Text;
-            string peso = textBoxPeso.Text;
-            string bultos = textBoxBultos.Text;
-            string info = textBoxInfo.Text;
+            //string name, string email, string tlf,string dni, string direccion
+            string name = textBoxNombre.Text;
+            string email = textBoxEmail.Text;
+            string tlf = textBoxTelefono.Text;
+            string dni = textBoxDni.Text;
+            string direccion = textBoxDireccion.Text;
+
 
             nuevaConexion.OpenConnection();
-            nuevaConexion.InsertEntrada(name, peso, bultos, info, DateTime.Now.ToString());
+            nuevaConexion.InsertEntrada(name, email, tlf, dni, direccion);
             nuevaConexion.CloseConnection();
             buttonSaveRegister.Enabled = false;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

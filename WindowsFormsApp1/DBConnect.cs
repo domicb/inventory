@@ -169,10 +169,10 @@ namespace WindowsFormsApp1
         }
 
         
-        public void InsertEntrada(string name, string peso, string bultos,string info, string dateIn)
+        public void InsertEntrada(string name, string email, string tlf,string dni, string direccion)
         {
-            dateIn = Convert.ToDateTime(dateIn).ToString("dd/MM/yyyy");
-            string query = "INSERT INTO `product`(`name`,`dateIn`,`info`,`nbultos`,`peso`)VALUES(@name, @dateIn, @info, @nbultos, @peso );";
+            //dateIn = Convert.ToDateTime(dateIn).ToString("dd/MM/yyyy");
+            string query = "INSERT INTO `client`(`name`,`tlf`,`email`,`dni`,`direccion`)VALUES(@name, @tlf, @email, @dni, @direccion );";
             if (this.OpenConnection() == true)
             {                 
                     try
@@ -181,13 +181,13 @@ namespace WindowsFormsApp1
                         using (MySqlCommand cmd = new MySqlCommand(query, connection))
                         {
                             cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
-                            cmd.Parameters.Add("@peso", MySqlDbType.VarChar).Value = peso;
-                            cmd.Parameters.Add("@nbultos", MySqlDbType.VarChar).Value = bultos;
-                            cmd.Parameters.Add("@dateIn", MySqlDbType.VarChar).Value = dateIn;
-                            cmd.Parameters.Add("@info", MySqlDbType.VarChar).Value = info;;
+                            cmd.Parameters.Add("@tlf", MySqlDbType.VarChar).Value = tlf;
+                            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+                            cmd.Parameters.Add("@dni", MySqlDbType.VarChar).Value = dni;
+                            cmd.Parameters.Add("@direccion", MySqlDbType.VarChar).Value = direccion;
                             cmd.ExecuteNonQuery();
                             lastId = cmd.LastInsertedId;
-                            MessageBox.Show("Entrada registrada con id: " + lastId + " Continua registrando productos vinculados");
+                            MessageBox.Show("Cliente registrado con id: " + lastId + "");
                         }
                     }
                     catch (Exception ex)
@@ -309,7 +309,7 @@ namespace WindowsFormsApp1
         public List<Product> SelectSubProduct(string product = "pedro")
         {
             //string query = "SELECT * FROM `subproduct` WHERE `name` LIKE '%" + product + "%'";
-            string query = "SELECT * FROM `subproduct`";
+            string query = "SELECT distinct name,size,kg,quantity,price,info,lote,dateIn,tipoProducto_idtipoProducto FROM `subproduct`;";
             //Create a list to store the result
             listProducts = new List<Product>();
 
@@ -378,6 +378,41 @@ namespace WindowsFormsApp1
             }
         }
 
+        public List<Cliente> SelectCliente()
+        {
+            string query = "SELECT * FROM client ";
+            //Create a list to store the result
+            List<Cliente> list = new List<Cliente>();
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list      
+                while (dataReader.Read())
+                {
+                    Cliente producto = new Cliente(dataReader["name"].ToString(), dataReader["tlf"].ToString(), dataReader["email"].ToString(), dataReader["dni"].ToString(), dataReader["direccion"].ToString());
+                    list.Add(producto);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return list;
+            }
+            else
+            {
+                return list;
+            }
+        }
+
         //Select statement
         public List<string>[] SelectClient()
         {
@@ -422,10 +457,10 @@ namespace WindowsFormsApp1
             }
         }
         
-        public string Count(string nameProduct)
+        public string Count(int nameProduct)
         {
-            nameProduct = nameProduct.Substring(0, 5); 
-            string query = "SELECT COUNT(*) FROM `subproduct` WHERE `size` LIKE '%" + nameProduct + "%'";
+            //nameProduct = nameProduct.Substring(0, 5); 
+            string query = "SELECT COUNT(*) FROM `subproduct` WHERE `tipoProducto_idtipoProducto` = " + nameProduct + "";
             string cuantos = "0";
             if (this.OpenConnection() == true)
             {
@@ -457,17 +492,17 @@ namespace WindowsFormsApp1
             }
         }
 
-        public void InsertCount(string nameProduct)
+        public void InsertCount(int nameProduct)
         {
             //TODO
             //la id es mejor forma de actualizar un producto 
             //dado que por el nombre like encontramos errores sql
             //CORREGIR ID HUEVA CHOCO
-            nameProduct = nameProduct.Substring(0, 4);
+            //nameProduct = nameProduct.Substring(0, 4);
 
-            string id = this.idProduct(nameProduct);
+            //string id = this.idProduct(nameProduct);
             string cuantos = this.Count(nameProduct);//devolver id del producto ya tenemos la función creada
-            string query = "UPDATE `product` SET `quantity` = @quantity WHERE `idproduct` = @idproduct";
+            string query = "UPDATE `subproduct` SET `quantity` = @quantity WHERE `tipoProducto_idtipoProducto` = @idproduct";
             if (this.OpenConnection() == true)
             {
                 try
@@ -476,7 +511,7 @@ namespace WindowsFormsApp1
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {               
                         cmd.Parameters.Add("@quantity", MySqlDbType.VarChar).Value = cuantos;
-                        cmd.Parameters.Add("@idproduct", MySqlDbType.VarChar).Value = id;
+                        cmd.Parameters.Add("@idproduct", MySqlDbType.Int32).Value = nameProduct;
                         cmd.ExecuteNonQuery();
                         this.CloseConnection();
                     }    
