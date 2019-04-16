@@ -88,6 +88,7 @@
             this.textPeso.Name = "textPeso";
             this.textPeso.Size = new System.Drawing.Size(100, 20);
             this.textPeso.TabIndex = 6;
+            this.textPeso.TextChanged += new System.EventHandler(this.textPeso_TextChanged);
             // 
             // label4
             // 

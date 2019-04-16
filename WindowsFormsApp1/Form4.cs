@@ -37,6 +37,68 @@ namespace WindowsFormsApp1
                 comboBoxCliente.Items.Add(newlistCliente.ElementAt(contador2).getNombre());
                 contador2++;
             }
+
+            //si no se selecciona cliente ni tipo producto no podemos dejar que guarde factura
+            buttonAlbaran.Enabled = false;
+            //si no hay tipo ni cliente no podemos añadir producto
+            buttonProducto.Enabled = false;
+            //total solo lectura
+            textBoxTotal.ReadOnly = true;
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(comboBoxCliente.Text != "" && comboBoxTipo.Text != "")
+            {
+                MessageBox.Show("Funca macho");
+            }
+        }
+
+        private void comboBoxCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxCliente.Text != "" && comboBoxTipo.Text != "" && textBoxCantidad.Text != "" && textBoxPrecio.Text != "")
+            {
+                buttonProducto.Enabled = true;
+            }
+            else
+            {
+                buttonProducto.Enabled = false;
+            }
+        }
+
+        private void comboBoxTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxCliente.Text != "" && comboBoxTipo.Text != "" && textBoxCantidad.Text != "" && textBoxPrecio.Text != "")
+            {
+                buttonProducto.Enabled = true;
+            }
+            else
+            {
+                buttonProducto.Enabled = false;
+            }
+        }
+
+        private void textBoxCantidad_TextChanged(object sender, EventArgs e)
+        {
+            if(textBoxCantidad.Text != "" && textBoxPrecio.Text != "")
+            {
+                double cantidad = double.Parse(textBoxCantidad.Text);
+                double precio = double.Parse(textBoxPrecio.Text);
+                double total = cantidad * precio;
+                textBoxTotal.Text = total.ToString();
+            }
+        }
+
+        private void textBoxPrecio_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxCantidad.Text != "" && textBoxPrecio.Text != "")
+            {
+                double cantidad = double.Parse(textBoxCantidad.Text);
+                double precio = double.Parse(textBoxPrecio.Text);
+                double total = cantidad * precio;
+                textBoxTotal.Text = total.ToString();
+            }
         }
     }
 }

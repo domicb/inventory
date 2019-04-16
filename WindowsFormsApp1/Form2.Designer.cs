@@ -126,9 +126,9 @@
             // buttonSaveRegister
             // 
             this.buttonSaveRegister.BackColor = System.Drawing.Color.Cyan;
-            this.buttonSaveRegister.Location = new System.Drawing.Point(308, 199);
+            this.buttonSaveRegister.Location = new System.Drawing.Point(235, 197);
             this.buttonSaveRegister.Name = "buttonSaveRegister";
-            this.buttonSaveRegister.Size = new System.Drawing.Size(97, 43);
+            this.buttonSaveRegister.Size = new System.Drawing.Size(230, 27);
             this.buttonSaveRegister.TabIndex = 0;
             this.buttonSaveRegister.Text = "Registrar";
             this.buttonSaveRegister.UseVisualStyleBackColor = false;
@@ -138,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 254);
+            this.ClientSize = new System.Drawing.Size(707, 235);
             this.Controls.Add(this.textBoxDni);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxDireccion);

@@ -66,9 +66,9 @@ namespace WindowsFormsApp1
             if(textCantidad.Text != "" && textPeso.Text !="")
             {
                 LabelPesoMedio.BackColor = Color.Green;
-                int peso = Int32.Parse(weight);
-                int cantidad = Int32.Parse(quantity);
-                int media = peso / cantidad;
+                double peso = double.Parse(weight);
+                double cantidad = double.Parse(quantity);
+                double media = peso / cantidad;
                 LabelPesoMedio.Text = media.ToString();
             }
         }
@@ -123,6 +123,20 @@ namespace WindowsFormsApp1
             {
                 comboBoxTipo.Items.Add(nuevalista.ElementAt(contador).getipo());
                 contador++;
+            }
+        }
+
+        private void textPeso_TextChanged(object sender, EventArgs e)
+        {
+            string quantity = textCantidad.Text;
+            string weight = textPeso.Text;
+            if (textCantidad.Text != "" && textPeso.Text != "")
+            {
+                LabelPesoMedio.BackColor = Color.Green;
+                double peso = double.Parse(weight);
+                double cantidad = double.Parse(quantity);
+                double media = peso / cantidad;
+                LabelPesoMedio.Text = media.ToString();
             }
         }
     }
