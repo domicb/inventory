@@ -4,7 +4,7 @@ CREATE TABLE `client` (
   `tlf` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `dni` varchar(45) DEFAULT NULL,
-  `direccion` varchar(45) DEFAULT NULL,
+  `direccion` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`idclient`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
