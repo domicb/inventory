@@ -86,6 +86,7 @@ namespace WindowsFormsApp1
                 double cantidad = double.Parse(textBoxCantidad.Text);
                 double precio = double.Parse(textBoxPrecio.Text);
                 double total = cantidad * precio;
+                total = Math.Truncate(total);
                 textBoxTotal.Text = total.ToString();
             }
         }
@@ -97,6 +98,7 @@ namespace WindowsFormsApp1
                 double cantidad = double.Parse(textBoxCantidad.Text);
                 double precio = double.Parse(textBoxPrecio.Text);
                 double total = cantidad * precio;
+                total = Math.Truncate(total);
                 textBoxTotal.Text = total.ToString();
             }
         }

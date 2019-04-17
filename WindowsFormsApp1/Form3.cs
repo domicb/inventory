@@ -136,6 +136,7 @@ namespace WindowsFormsApp1
                 double peso = double.Parse(weight);
                 double cantidad = double.Parse(quantity);
                 double media = peso / cantidad;
+                media = Math.Truncate(media);
                 LabelPesoMedio.Text = media.ToString();
             }
         }
