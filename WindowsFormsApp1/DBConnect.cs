@@ -309,7 +309,7 @@ namespace WindowsFormsApp1
         public List<Product> SelectSubProduct(string product = "pedro")
         {
             //string query = "SELECT * FROM `subproduct` WHERE `name` LIKE '%" + product + "%'";
-            string query = "SELECT distinct name,size,kg,quantity,price,info,lote,dateIn,tipoProducto_idtipoProducto FROM `subproduct`;";
+            string query = "SELECT distinct name,size,kg,quantity,price,info,lote,dateIn,tipoProducto_idtipoProducto FROM `subproduct` order by `name`;";
             //Create a list to store the result
             listProducts = new List<Product>();
 
