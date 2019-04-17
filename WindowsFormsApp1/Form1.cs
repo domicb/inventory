@@ -54,9 +54,10 @@ namespace WindowsFormsApp1
                         dataGridView1.Rows[i].Cells[0].Value = listaDatos.ElementAt(i).getName();
                         dataGridView1.Rows[i].Cells[1].Value = listaDatos.ElementAt(i).getSize();
                         dataGridView1.Rows[i].Cells[2].Value = listaDatos.ElementAt(i).getKg();
-                        dataGridView1.Rows[i].Cells[3].Value = listaDatos.ElementAt(i).getQuantity() + " Cajas";
-                        dataGridView1.Rows[i].Cells[4].Value = listaDatos.ElementAt(i).getInfo();
-    
+                        dataGridView1.Rows[i].Cells[3].Value = listaDatos.ElementAt(i).getQuantity()+ " Cajas";
+                        dataGridView1.Rows[i].Cells[4].Value = listaDatos.ElementAt(i).getLote();
+                        dataGridView1.Rows[i].Cells[5].Value = listaDatos.ElementAt(i).getInfo();
+
                         i++;
                     }        
                 }
