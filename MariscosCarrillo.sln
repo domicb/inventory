@@ -5,9 +5,7 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{CD26CE40-0FB3-463E-BDF5-5B64ABAF5F38}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{97A17639-FC16-4354-9B16-548E2B71EB94}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup2", "Setup2\Setup2.vdproj", "{C4A0FD92-55EE-4A0B-9BBB-28094631E550}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Install", "Setup2\Setup2.vdproj", "{C4A0FD92-55EE-4A0B-9BBB-28094631E550}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,8 +17,6 @@ Global
 		{CD26CE40-0FB3-463E-BDF5-5B64ABAF5F38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD26CE40-0FB3-463E-BDF5-5B64ABAF5F38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD26CE40-0FB3-463E-BDF5-5B64ABAF5F38}.Release|Any CPU.Build.0 = Release|Any CPU
-		{97A17639-FC16-4354-9B16-548E2B71EB94}.Debug|Any CPU.ActiveCfg = Debug
-		{97A17639-FC16-4354-9B16-548E2B71EB94}.Release|Any CPU.ActiveCfg = Release
 		{C4A0FD92-55EE-4A0B-9BBB-28094631E550}.Debug|Any CPU.ActiveCfg = Debug
 		{C4A0FD92-55EE-4A0B-9BBB-28094631E550}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
