@@ -113,10 +113,10 @@ namespace WindowsFormsApp1
             {
                 dataGridView1.Rows[i].Cells[0].Value = listaDatos.ElementAt(i).getName();
                 dataGridView1.Rows[i].Cells[1].Value = listaDatos.ElementAt(i).getSize();
-                dataGridView1.Rows[i].Cells[2].Value = listaDatos.ElementAt(i).getNow();
+                dataGridView1.Rows[i].Cells[2].Value = listaDatos.ElementAt(i).getKg();
                 dataGridView1.Rows[i].Cells[3].Value = listaDatos.ElementAt(i).getQuantity();
-                dataGridView1.Rows[i].Cells[4].Value = listaDatos.ElementAt(i).getKg();
-                dataGridView1.Rows[i].Cells[5].Value = listaDatos.ElementAt(i).getPrice() + " Euros";
+                dataGridView1.Rows[i].Cells[4].Value = listaDatos.ElementAt(i).getLote();
+                dataGridView1.Rows[i].Cells[5].Value = listaDatos.ElementAt(i).getInfo();
                 i++;
             }
             

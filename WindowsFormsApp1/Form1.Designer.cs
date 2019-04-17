@@ -35,11 +35,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Adicional = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mydbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mydbDataSet = new WindowsFormsApp1.mydbDataSet();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,6 +46,14 @@
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonSalida = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Adicional = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).BeginInit();
@@ -98,6 +101,7 @@
             this.size,
             this.kg,
             this.Cantidad,
+            this.Lote,
             this.Adicional});
             this.dataGridView1.Location = new System.Drawing.Point(49, 104);
             this.dataGridView1.Name = "dataGridView1";
@@ -107,36 +111,6 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick_1);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            // 
-            // name
-            // 
-            this.name.FillWeight = 140F;
-            this.name.HeaderText = "Descripción";
-            this.name.Name = "name";
-            this.name.Width = 180;
-            // 
-            // size
-            // 
-            this.size.HeaderText = "Tamaño";
-            this.size.Name = "size";
-            this.size.Width = 120;
-            // 
-            // kg
-            // 
-            this.kg.HeaderText = "Peso Neto Kg";
-            this.kg.Name = "kg";
-            this.kg.Width = 80;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // Adicional
-            // 
-            this.Adicional.HeaderText = "Adicional";
-            this.Adicional.Name = "Adicional";
-            this.Adicional.Width = 500;
             // 
             // mydbDataSetBindingSource
             // 
@@ -236,6 +210,45 @@
             this.buttonSalida.UseVisualStyleBackColor = false;
             this.buttonSalida.Click += new System.EventHandler(this.buttonSalida_Click);
             // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // name
+            // 
+            this.name.FillWeight = 140F;
+            this.name.HeaderText = "Descripción";
+            this.name.Name = "name";
+            this.name.Width = 180;
+            // 
+            // size
+            // 
+            this.size.HeaderText = "Tamaño";
+            this.size.Name = "size";
+            this.size.Width = 120;
+            // 
+            // kg
+            // 
+            this.kg.HeaderText = "Peso Neto Kg";
+            this.kg.Name = "kg";
+            this.kg.Width = 80;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Lote
+            // 
+            this.Lote.HeaderText = "Lote";
+            this.Lote.Name = "Lote";
+            // 
+            // Adicional
+            // 
+            this.Adicional.HeaderText = "Adicional";
+            this.Adicional.Name = "Adicional";
+            this.Adicional.Width = 400;
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -283,13 +296,16 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonSalida;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn size;
         private System.Windows.Forms.DataGridViewTextBoxColumn kg;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lote;
         private System.Windows.Forms.DataGridViewTextBoxColumn Adicional;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button buttonSalida;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintDialog printDialog1;
     }
 }
 
