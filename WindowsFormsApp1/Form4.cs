@@ -13,6 +13,8 @@ namespace WindowsFormsApp1
     public partial class Form4 : Form
     {
         DBConnect nuevaConexion = new DBConnect();
+        List<ProductInvoice>listaDatos = new List<ProductInvoice>();
+        string sumaTotal;
         public Form4()
         {
             InitializeComponent();
@@ -47,11 +49,62 @@ namespace WindowsFormsApp1
 
         }
 
+
+        public void loadGrid()
+        {
+
+            if (nuevaConexion.OpenConnection() == true)
+            {
+                listaDatos = nuevaConexion.SelectProducts();
+                dataGridView1.Rows.Clear();
+                int n = listaDatos.Count();
+                int i = 0;
+                double sumaParcial=0;
+                double parcial;
+                string partial;
+
+                foreach (var item in listaDatos)
+                {
+                    //TODO
+                    //UPDATE SUBPRODUCT CAMPO QUANTITY OR KG 
+                    //IS NECESARY INSERT COUNT PRODUCT?
+                    dataGridView1.Rows.Add();
+                    dataGridView1.Rows[i].Cells[0].Value = listaDatos.ElementAt(i).getNombre();
+                    dataGridView1.Rows[i].Cells[1].Value = listaDatos.ElementAt(i).getPeso();
+                    dataGridView1.Rows[i].Cells[2].Value = listaDatos.ElementAt(i).getCantidad();
+                    dataGridView1.Rows[i].Cells[3].Value = listaDatos.ElementAt(i).getPrecio();
+                    dataGridView1.Rows[i].Cells[4].Value = listaDatos.ElementAt(i).getTotal();
+                    partial = listaDatos.ElementAt(i).getTotal();
+                    parcial = double.Parse(partial);
+                    sumaParcial = sumaParcial + parcial;
+                    i++;
+                }
+
+                textBoxTotalFactura.Text = sumaParcial.ToString();
+                string idinvoice = nuevaConexion.getIdlast().ToString();
+                nuevaConexion.UpdateInvoice(idinvoice,textBoxTotalFactura.Text);
+
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            if(comboBoxCliente.Text != "" && comboBoxTipo.Text != "")
+
+            if (comboBoxCliente.Text != "" && comboBoxTipo.Text != "" && textBoxTotal.Text != "")
             {
-                MessageBox.Show("Funca macho");
+
+                string canti = textBoxCantidad.Text;
+                string preci = textBoxPrecio.Text;
+                string total = textBoxTotal.Text;
+                canti = canti.Replace(".", ",");
+                preci = preci.Replace(".", ",");
+                string product = comboBoxTipo.Text;
+                string peso = textBoxPeso.Text;
+
+                string idproduct = nuevaConexion.idProduct(product);
+                nuevaConexion.InsertProductInvoice(idproduct,preci,canti,total,peso);
+                this.loadGrid();
+
             }
         }
 
@@ -83,10 +136,15 @@ namespace WindowsFormsApp1
         {
             if(textBoxCantidad.Text != "" && textBoxPrecio.Text != "")
             {
-                double cantidad = double.Parse(textBoxCantidad.Text);
-                double precio = double.Parse(textBoxPrecio.Text);
+                buttonProducto.Enabled = true;
+                string canti = textBoxCantidad.Text;
+                string preci = textBoxPrecio.Text;
+                canti = canti.Replace(".",",");
+                preci = preci.Replace(".", ",");
+                double cantidad = double.Parse(canti);
+                double precio = double.Parse(preci);
                 double total = cantidad * precio;
-                total = Math.Truncate(total);
+                //total = Math.Truncate(total);
                 textBoxTotal.Text = total.ToString();
             }
         }
@@ -95,12 +153,29 @@ namespace WindowsFormsApp1
         {
             if (textBoxCantidad.Text != "" && textBoxPrecio.Text != "")
             {
-                double cantidad = double.Parse(textBoxCantidad.Text);
-                double precio = double.Parse(textBoxPrecio.Text);
+                buttonProducto.Enabled = true;
+                string canti = textBoxCantidad.Text;
+                string preci = textBoxPrecio.Text;
+                canti = canti.Replace(".", ",");
+                preci = preci.Replace(".", ",");
+                double cantidad = double.Parse(canti);
+                double precio = double.Parse(preci);
                 double total = cantidad * precio;
-                total = Math.Truncate(total);
+                //total = Math.Truncate(total);
                 textBoxTotal.Text = total.ToString();
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            string id_client = nuevaConexion.idClient(comboBoxCliente.Text);
+            
+            nuevaConexion.InsertInvoice(id_client);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

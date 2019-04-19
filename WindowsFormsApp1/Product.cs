@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
         string info;
         string lote;
         string idtipo;
-        private string weight;
+        string weight;
         private DateTime now;
 
         public Product(string name, string size, string weight, string quantity, string price, DateTime now, string info, string lote, string Tipo)

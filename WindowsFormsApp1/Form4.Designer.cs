@@ -48,17 +48,18 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxTotal = new System.Windows.Forms.TextBox();
             this.buttonAlbaran = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBoxPeso = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxTotalFactura = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 127);
+            this.label1.Location = new System.Drawing.Point(23, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 13);
             this.label1.TabIndex = 0;
@@ -67,7 +68,7 @@
             // comboBoxTipo
             // 
             this.comboBoxTipo.FormattingEnabled = true;
-            this.comboBoxTipo.Location = new System.Drawing.Point(68, 119);
+            this.comboBoxTipo.Location = new System.Drawing.Point(68, 76);
             this.comboBoxTipo.Name = "comboBoxTipo";
             this.comboBoxTipo.Size = new System.Drawing.Size(233, 21);
             this.comboBoxTipo.TabIndex = 1;
@@ -148,7 +149,7 @@
             this.buttonProducto.Name = "buttonProducto";
             this.buttonProducto.Size = new System.Drawing.Size(181, 23);
             this.buttonProducto.TabIndex = 10;
-            this.buttonProducto.Text = "Agregar Producto";
+            this.buttonProducto.Text = "2º Agregar Producto";
             this.buttonProducto.UseVisualStyleBackColor = true;
             this.buttonProducto.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -165,6 +166,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(694, 204);
             this.dataGridView1.TabIndex = 11;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Producto
             // 
@@ -214,24 +216,8 @@
             this.buttonAlbaran.Name = "buttonAlbaran";
             this.buttonAlbaran.Size = new System.Drawing.Size(168, 41);
             this.buttonAlbaran.TabIndex = 14;
-            this.buttonAlbaran.Text = "Guardar Albarán";
+            this.buttonAlbaran.Text = "3º Guardar Albarán";
             this.buttonAlbaran.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 75);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 13);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Producto";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(68, 72);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(233, 20);
-            this.textBox5.TabIndex = 16;
             // 
             // label8
             // 
@@ -242,22 +228,49 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "Peso";
             // 
-            // textBox6
+            // textBoxPeso
             // 
-            this.textBox6.Location = new System.Drawing.Point(419, 124);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 18;
+            this.textBoxPeso.Location = new System.Drawing.Point(419, 124);
+            this.textBoxPeso.Name = "textBoxPeso";
+            this.textBoxPeso.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPeso.TabIndex = 18;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(86, 124);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(186, 23);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "1º Registrar Factura";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(752, 351);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(70, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Total Factura";
+            // 
+            // textBoxTotalFactura
+            // 
+            this.textBoxTotalFactura.Location = new System.Drawing.Point(755, 382);
+            this.textBoxTotalFactura.Name = "textBoxTotalFactura";
+            this.textBoxTotalFactura.Size = new System.Drawing.Size(100, 20);
+            this.textBoxTotalFactura.TabIndex = 21;
             // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 444);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox5);
+            this.ClientSize = new System.Drawing.Size(1000, 444);
+            this.Controls.Add(this.textBoxTotalFactura);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBoxPeso);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.buttonAlbaran);
             this.Controls.Add(this.textBoxTotal);
             this.Controls.Add(this.label6);
@@ -299,14 +312,15 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxTotal;
         private System.Windows.Forms.Button buttonAlbaran;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Peso;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBoxPeso;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxTotalFactura;
     }
 }

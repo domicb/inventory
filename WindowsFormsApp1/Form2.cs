@@ -13,10 +13,14 @@ namespace WindowsFormsApp1
     public partial class Form2 : Form
     {
         DBConnect nuevaConexion = new DBConnect();
+        
+
         public Form2()
         {
             InitializeComponent();
         }
+
+
 
         private void Form2_Load(object sender, EventArgs e)
         {

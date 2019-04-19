@@ -137,7 +137,7 @@ namespace WindowsFormsApp1
 
         public string idProduct(string name)
         {      
-            string query = "SELECT idproduct FROM `product` WHERE `name` LIKE '%" + name + "%' limit 1";
+            string query = "SELECT idtipoProducto FROM `tipoproducto` WHERE `tipo` LIKE '%" + name + "%' limit 1";
             string idProduct = "0";
             if (this.OpenConnection() == true)
             {
@@ -168,7 +168,137 @@ namespace WindowsFormsApp1
             }
         }
 
-        
+        public string idClient(string name)
+        {
+            string query = "SELECT idclient FROM `client` WHERE `name` LIKE '%" + name + "%' limit 1";
+            string idProduct = "0";
+            if (this.OpenConnection() == true)
+            {
+                try
+                {
+                    //Create Command
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                    //Read the data and store them in the list      
+                    while (dataReader.Read())
+                    {
+                        idProduct = dataReader[0].ToString();
+                    }
+                    this.CloseConnection();
+                    return idProduct;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("error" + ex.Message);
+                    return "error " + ex.Message;
+                }
+            }
+            else
+            {
+                return "error 44, al recuperar id producto";
+            }
+        }
+
+        public long getIdlast()
+        {
+            return lastId;
+        }
+
+        public void UpdateInvoice(string id,string total)
+        {           
+            string query = "UPDATE `mydb`.`invoice` SET `amount` = @amount WHERE `idinvoice` = @idinvoice;";
+            if (this.OpenConnection() == true)
+            {
+                try
+                {
+                    double all = double.Parse(total);                  
+                    //Create Command
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.Add("@idinvoice", MySqlDbType.Int32).Value = Int32.Parse(id);
+                        cmd.Parameters.Add("@amount", MySqlDbType.Double).Value = all;
+                        cmd.ExecuteNonQuery();                        
+                        MessageBox.Show("Factura registrada con id: " + id + "e importe:" + total);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("error" + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay conexión");
+            }
+        }
+
+        public void InsertInvoice(string client)
+        {
+            DateTime dateIn = DateTime.Now;         
+            //primero necesitamos crear una invoice
+            string query = "INSERT INTO `invoice`(`dateCreate`,`client_idclient`)VALUES(@dateCreate, @client_idclient);";
+            if (this.OpenConnection() == true)
+            {
+                try
+                {
+                    //Create Command
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.Add("@dateCreate", MySqlDbType.DateTime).Value = dateIn;
+                        cmd.Parameters.Add("@client_idclient", MySqlDbType.Int32).Value = client;
+                        cmd.ExecuteNonQuery();
+                        lastId = cmd.LastInsertedId;
+                        MessageBox.Show("Factura registrada con id: " + lastId + "e id de cliente:"+ client);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("error" + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay conexión");
+            }
+        }
+
+        public void InsertProductInvoice(string product, string price, string quantity, string total, string peso)
+        {
+            //dateIn = Convert.ToDateTime(dateIn).ToString("dd/MM/yyyy");
+            //primero necesitamos crear una invoice
+            string query = "INSERT INTO `invoice_has_product`(`invoice_idinvoice`,`id_subproduct`,`cantidad`,`priceProduct`,`total`,`peso`)VALUES(@invoice_idinvoice,@id_subproduct, @cantidad, @priceProduct, @total, @peso);";
+            if (this.OpenConnection() == true)
+            {
+                try
+                {
+                    string idinvo = lastId.ToString();
+                    //Create Command
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.Add("@invoice_idinvoice", MySqlDbType.Int32).Value = Int32.Parse(idinvo);
+                        cmd.Parameters.Add("@id_subproduct", MySqlDbType.Int32).Value = Int32.Parse(product);
+                        cmd.Parameters.Add("@cantidad", MySqlDbType.VarChar).Value = quantity;
+                        cmd.Parameters.Add("@priceProduct", MySqlDbType.VarChar).Value = price;
+                        cmd.Parameters.Add("@total", MySqlDbType.VarChar).Value = total;
+                        cmd.Parameters.Add("@peso", MySqlDbType.VarChar).Value = peso;
+                        cmd.ExecuteNonQuery();                        
+                        MessageBox.Show("Producto registrado a factura con id: " + lastId + "");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("error" + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay conexión");
+            }
+        }
+
+
         public void InsertEntrada(string name, string email, string tlf,string dni, string direccion)
         {
             //dateIn = Convert.ToDateTime(dateIn).ToString("dd/MM/yyyy");
@@ -210,56 +340,63 @@ namespace WindowsFormsApp1
             string size = product.getSize();
             string quantity = product.getQuantity();
             string kg = product.getKg();
-            string price = product.getPrice();
+            string pri = product.getPrice();
+            pri = pri.Replace(".",",");
+            if (pri == "")
+            {
+                pri = "-1";
+            }
+            double price = double.Parse(pri);
             string info = product.getInfo();
-            string lote = product.getLote();           
+            string lote = product.getLote();
+            if(lote == "")
+            {
+                lote = "Sin definir";
+            }
             //string idProduct = this.idProduct(padre);           
             DateTime dateOut = DateTime.Now;
             DateTime dateIn = DateTime.Now;
             string fecha = dateIn.ToString();
             //registramos la entrada obteniendo el id para asignar y relacionar el producto a la entrada
-            long id = lastId;
-            string idProduct = id.ToString();
+            //long id = lastId;
+            //string idProduct = id.ToString();
 
             string query = "INSERT INTO `subproduct`(`name`,`size`,`product_idproduct`,`quantity`,`dateIn`,`dateOut`,`kg`,`price`,`info`,`lote`, `tipoproducto_idtipoproducto`)VALUES(@name, @size, @product_idproduct, @quantity, @dateIn, @dateOut, @kg , @price, @info, @lote, @tipoproducto_idtipoproducto );";
             
             if (this.OpenConnection() == true)
             {
-                int contador = Convert.ToInt32(quantity);
-                while (contador > 0)
+                    
+                try
                 {
-                    contador--;
-                    try
+                    //Create Command
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
-                        //Create Command
-                        using (MySqlCommand cmd = new MySqlCommand(query, connection))
-                        {
-                            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
-                            cmd.Parameters.Add("@size", MySqlDbType.VarChar).Value = size;
-                            cmd.Parameters.Add("@product_idproduct", MySqlDbType.Int32).Value = Int32.Parse(idProduct);
-                            cmd.Parameters.Add("@tipoproducto_idtipoproducto", MySqlDbType.Int32).Value = idTipo;
-                            cmd.Parameters.Add("@quantity", MySqlDbType.VarChar).Value = quantity;
-                            cmd.Parameters.Add("@dateIn", MySqlDbType.DateTime).Value = dateIn;
-                            cmd.Parameters.Add("@dateOut", MySqlDbType.DateTime).Value = dateOut;
-                            cmd.Parameters.Add("@kg", MySqlDbType.Double).Value = kg;
-                            cmd.Parameters.Add("@lote", MySqlDbType.VarChar).Value = lote;
-                            cmd.Parameters.Add("@price", MySqlDbType.Double).Value = price;
-                            cmd.Parameters.Add("@info", MySqlDbType.VarChar).Value = info;
-                            cmd.ExecuteNonQuery();
+                        cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
+                        cmd.Parameters.Add("@size", MySqlDbType.VarChar).Value = size;
+                        cmd.Parameters.Add("@product_idproduct", MySqlDbType.Int32).Value = idTipo;
+                        cmd.Parameters.Add("@tipoproducto_idtipoproducto", MySqlDbType.Int32).Value = idTipo;
+                        cmd.Parameters.Add("@quantity", MySqlDbType.VarChar).Value = quantity;
+                        cmd.Parameters.Add("@dateIn", MySqlDbType.DateTime).Value = dateIn;
+                        cmd.Parameters.Add("@dateOut", MySqlDbType.DateTime).Value = dateOut;
+                        cmd.Parameters.Add("@kg", MySqlDbType.VarChar).Value = kg;
+                        cmd.Parameters.Add("@lote", MySqlDbType.VarChar).Value = lote;
+                        cmd.Parameters.Add("@price", MySqlDbType.Double).Value = price;
+                        cmd.Parameters.Add("@info", MySqlDbType.VarChar).Value = info;
+                        cmd.ExecuteNonQuery();
                             
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("error" + ex.Message);                      
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("error" + ex.Message);                      
+                }               
             }
             else
             {
                 MessageBox.Show("No hay conexión");
             }
         }
+
 
         //Update statement
         public int Update(Product product)
@@ -272,7 +409,7 @@ namespace WindowsFormsApp1
             string idProduct = this.idProduct(name);
             string query = "";
             
-            query = "UPDATE `mydb`.`subproduct`SET `name` = @name, `size` = @size,`kg` = @kg, `price` = @price WHERE `idproduct` = @idProduct";
+            query = "UPDATE `mydb`.`subproduct`SET `quantity` = @quantity, `price` = @price WHERE `idproduct` = @idProduct";
             
             if (this.OpenConnection() == true)
             {
@@ -304,6 +441,40 @@ namespace WindowsFormsApp1
         //Delete statement
         public void Delete()
         {
+        }
+        public string getNombreProduct(string id)
+        {
+            string query = "SELECT * FROM tipoProducto where `idtipoProducto`="+id;
+            //Create a list to store the result
+            string nombre = "No encontrado";
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list      
+                while (dataReader.Read())
+                {
+                    nombre = dataReader["tipo"].ToString();
+                   
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return nombre;
+            }
+            else
+            {
+                return nombre;
+            }
         }
 
         public List<Product> SelectSubProduct(string product = "pedro")
@@ -368,6 +539,37 @@ namespace WindowsFormsApp1
 
                 //close Connection
                 this.CloseConnection();
+
+                //return list to be displayed
+                return list;
+            }
+            else
+            {
+                return list;
+            }
+        }
+        public List<ProductInvoice> SelectProducts()
+        {
+            string query = "SELECT * FROM invoice_has_product where `invoice_idinvoice` ="+lastId;
+            //Create a list to store the result
+            List<ProductInvoice> list = new List<ProductInvoice>();
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list      
+                while (dataReader.Read())
+                {
+                    ProductInvoice producto = new ProductInvoice(dataReader["id_subproduct"].ToString(), dataReader["peso"].ToString(), dataReader["cantidad"].ToString(), dataReader["total"].ToString(), dataReader["priceProduct"].ToString());
+                    list.Add(producto);
+                }
+
+                //close Data Reader
+                dataReader.Close();
 
                 //return list to be displayed
                 return list;

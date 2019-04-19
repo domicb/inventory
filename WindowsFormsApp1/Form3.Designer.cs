@@ -30,8 +30,6 @@
         {
             this.textDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textSize = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.textPeso = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textCantidad = new System.Windows.Forms.TextBox();
@@ -66,22 +64,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Descripción";
             // 
-            // textSize
-            // 
-            this.textSize.Location = new System.Drawing.Point(106, 83);
-            this.textSize.Name = "textSize";
-            this.textSize.Size = new System.Drawing.Size(252, 20);
-            this.textSize.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 86);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Tamaño / Clase";
-            // 
             // textPeso
             // 
             this.textPeso.Location = new System.Drawing.Point(298, 215);
@@ -93,7 +75,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(330, 199);
+            this.label4.Location = new System.Drawing.Point(312, 199);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 13);
             this.label4.TabIndex = 7;
@@ -101,7 +83,7 @@
             // 
             // textCantidad
             // 
-            this.textCantidad.Location = new System.Drawing.Point(177, 215);
+            this.textCantidad.Location = new System.Drawing.Point(106, 219);
             this.textCantidad.Name = "textCantidad";
             this.textCantidad.Size = new System.Drawing.Size(100, 20);
             this.textCantidad.TabIndex = 10;
@@ -110,7 +92,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(190, 199);
+            this.label6.Location = new System.Drawing.Point(133, 203);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(48, 13);
             this.label6.TabIndex = 11;
@@ -156,7 +138,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(236, 262);
+            this.label8.Location = new System.Drawing.Point(210, 250);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(106, 13);
             this.label8.TabIndex = 21;
@@ -165,7 +147,7 @@
             // LabelPesoMedio
             // 
             this.LabelPesoMedio.AutoSize = true;
-            this.LabelPesoMedio.Location = new System.Drawing.Point(262, 283);
+            this.LabelPesoMedio.Location = new System.Drawing.Point(236, 274);
             this.LabelPesoMedio.Name = "LabelPesoMedio";
             this.LabelPesoMedio.Size = new System.Drawing.Size(53, 13);
             this.LabelPesoMedio.TabIndex = 22;
@@ -189,7 +171,7 @@
             // 
             // textBoxPrecio
             // 
-            this.textBoxPrecio.Location = new System.Drawing.Point(177, 151);
+            this.textBoxPrecio.Location = new System.Drawing.Point(106, 151);
             this.textBoxPrecio.Name = "textBoxPrecio";
             this.textBoxPrecio.Size = new System.Drawing.Size(100, 20);
             this.textBoxPrecio.TabIndex = 25;
@@ -197,7 +179,7 @@
             // labelPrecio
             // 
             this.labelPrecio.AutoSize = true;
-            this.labelPrecio.Location = new System.Drawing.Point(202, 135);
+            this.labelPrecio.Location = new System.Drawing.Point(133, 135);
             this.labelPrecio.Name = "labelPrecio";
             this.labelPrecio.Size = new System.Drawing.Size(37, 13);
             this.labelPrecio.TabIndex = 26;
@@ -206,19 +188,19 @@
             // comboBoxTipo
             // 
             this.comboBoxTipo.FormattingEnabled = true;
-            this.comboBoxTipo.Location = new System.Drawing.Point(12, 151);
+            this.comboBoxTipo.Location = new System.Drawing.Point(106, 86);
             this.comboBoxTipo.Name = "comboBoxTipo";
-            this.comboBoxTipo.Size = new System.Drawing.Size(159, 21);
+            this.comboBoxTipo.Size = new System.Drawing.Size(252, 21);
             this.comboBoxTipo.TabIndex = 27;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(47, 135);
+            this.label1.Location = new System.Drawing.Point(12, 94);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 13);
+            this.label1.Size = new System.Drawing.Size(83, 13);
             this.label1.TabIndex = 28;
-            this.label1.Text = "Tipo";
+            this.label1.Text = "Tamaño / Clase";
             // 
             // Form3
             // 
@@ -241,8 +223,6 @@
             this.Controls.Add(this.textCantidad);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textPeso);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textSize);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textDescription);
             this.Name = "Form3";
@@ -256,8 +236,6 @@
         #endregion
         private System.Windows.Forms.TextBox textDescription;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textSize;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textPeso;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textCantidad;

@@ -23,5 +23,7 @@ CREATE TABLE `invoice_has_product` (
   `id_subproduct` int(11) NOT NULL,
   `priceProduct` varchar(45) NOT NULL,
   `cantidad` varchar(45) NOT NULL,
+  `peso` varchar(45) NOT NULL,
+  `total` varchar(45) NOT NULL,
   PRIMARY KEY (`invoice_idinvoice`,`id_subproduct`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

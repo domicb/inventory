@@ -34,7 +34,7 @@ namespace WindowsFormsApp1
             if (textDescription.Text != "")
             {               
                 string name = textDescription.Text;
-                string size = textSize.Text;
+                string size = comboBoxTipo.SelectedItem.ToString();
                 string quantity = textCantidad.Text;
                 string weight = textPeso.Text;
                 //int peso = int.Parse(weight);
@@ -63,7 +63,9 @@ namespace WindowsFormsApp1
         {
             string quantity = textCantidad.Text;
             string weight = textPeso.Text;
-            if(textCantidad.Text != "" && textPeso.Text !="")
+            weight = weight.Replace(".", ",");
+            quantity = quantity.Replace(".", ",");
+            if (textCantidad.Text != "" && textPeso.Text !="")
             {
                 LabelPesoMedio.BackColor = Color.Green;
                 double peso = double.Parse(weight);
@@ -89,7 +91,7 @@ namespace WindowsFormsApp1
             //string padre = comboBoxPadre.Text;
             string name = textDescription.Text;
             //string tipo = comboBoxTipo.Text;
-            string size = textSize.Text;
+            string size = comboBoxTipo.Text;
             string quantity = textCantidad.Text;
             string weight = textPeso.Text;
             string price = "No calculado";
@@ -102,6 +104,7 @@ namespace WindowsFormsApp1
             nuevaConexion.Update(product);
             MessageBox.Show("El producto: " + name + " se ha actualizado correctamente en la Base de datos");
             nuevaConexion.CloseConnection();
+            
         }
 
         private void textBoxInfo_TextChanged(object sender, EventArgs e)
@@ -130,6 +133,8 @@ namespace WindowsFormsApp1
         {
             string quantity = textCantidad.Text;
             string weight = textPeso.Text;
+            weight = weight.Replace(".",",");
+            quantity = quantity.Replace(".", ",");
             if (textCantidad.Text != "" && textPeso.Text != "")
             {
                 LabelPesoMedio.BackColor = Color.Green;
