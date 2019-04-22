@@ -50,7 +50,7 @@
             // 
             // textDescription
             // 
-            this.textDescription.Location = new System.Drawing.Point(106, 35);
+            this.textDescription.Location = new System.Drawing.Point(136, 39);
             this.textDescription.Name = "textDescription";
             this.textDescription.Size = new System.Drawing.Size(252, 20);
             this.textDescription.TabIndex = 2;
@@ -58,9 +58,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 42);
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(11, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(96, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Descripción";
             // 
@@ -101,9 +102,13 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(495, 241);
+            this.buttonSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.ForeColor = System.Drawing.Color.White;
+            this.buttonSave.Location = new System.Drawing.Point(481, 250);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(118, 55);
+            this.buttonSave.Size = new System.Drawing.Size(144, 48);
             this.buttonSave.TabIndex = 12;
             this.buttonSave.Text = "Guardar";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -188,7 +193,7 @@
             // comboBoxTipo
             // 
             this.comboBoxTipo.FormattingEnabled = true;
-            this.comboBoxTipo.Location = new System.Drawing.Point(106, 86);
+            this.comboBoxTipo.Location = new System.Drawing.Point(136, 86);
             this.comboBoxTipo.Name = "comboBoxTipo";
             this.comboBoxTipo.Size = new System.Drawing.Size(252, 21);
             this.comboBoxTipo.TabIndex = 27;
@@ -196,9 +201,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 94);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(8, 87);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.Size = new System.Drawing.Size(122, 20);
             this.label1.TabIndex = 28;
             this.label1.Text = "Tamaño / Clase";
             // 
@@ -206,6 +212,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(689, 310);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxTipo);

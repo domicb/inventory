@@ -102,9 +102,9 @@ namespace WindowsFormsApp1
             }
         }
 
-        public string idTipo(string name)
+        public string existe(string name, string lote)
         {
-            string query = "SELECT idtipoProducto FROM tipoproducto WHERE `tipo` LIKE '%" + name + "%' limit 1";
+            string query = "SELECT idsubProduct FROM subproduct WHERE `tipoProducto_idtipoProducto` = " + name + " AND `lote` = '"+lote+"'";
             string idProduct = "0";
             if (this.OpenConnection() == true)
             {
@@ -135,7 +135,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        public string idProduct(string name)
+        public string idtipoProduct(string name)
         {      
             string query = "SELECT idtipoProducto FROM `tipoproducto` WHERE `tipo` LIKE '%" + name + "%' limit 1";
             string idProduct = "0";
@@ -298,7 +298,6 @@ namespace WindowsFormsApp1
             }
         }
 
-
         public void InsertEntrada(string name, string email, string tlf,string dni, string direccion)
         {
             //dateIn = Convert.ToDateTime(dateIn).ToString("dd/MM/yyyy");
@@ -332,7 +331,7 @@ namespace WindowsFormsApp1
         }
 
         //Insert statement
-        public void Insert(Product product, int idTipo)
+        public void Insert(Product product)
         {
             //TODO
             //Necesitamos insertar primero el registro idLAST
@@ -341,18 +340,17 @@ namespace WindowsFormsApp1
             string quantity = product.getQuantity();
             string kg = product.getKg();
             string pri = product.getPrice();
+            string idTipo = product.getTipo();
             pri = pri.Replace(".",",");
-            if (pri == "")
-            {
-                pri = "-1";
-            }
+            kg = kg.Replace(".", ",");
+            quantity = quantity.Replace(".", ",");
+
             double price = double.Parse(pri);
+            double cantidad = double.Parse(quantity);
+            double peso = double.Parse(kg);
             string info = product.getInfo();
             string lote = product.getLote();
-            if(lote == "")
-            {
-                lote = "Sin definir";
-            }
+
             //string idProduct = this.idProduct(padre);           
             DateTime dateOut = DateTime.Now;
             DateTime dateIn = DateTime.Now;
@@ -375,10 +373,10 @@ namespace WindowsFormsApp1
                         cmd.Parameters.Add("@size", MySqlDbType.VarChar).Value = size;
                         cmd.Parameters.Add("@product_idproduct", MySqlDbType.Int32).Value = idTipo;
                         cmd.Parameters.Add("@tipoproducto_idtipoproducto", MySqlDbType.Int32).Value = idTipo;
-                        cmd.Parameters.Add("@quantity", MySqlDbType.VarChar).Value = quantity;
+                        cmd.Parameters.Add("@quantity", MySqlDbType.Double).Value = cantidad;
                         cmd.Parameters.Add("@dateIn", MySqlDbType.DateTime).Value = dateIn;
                         cmd.Parameters.Add("@dateOut", MySqlDbType.DateTime).Value = dateOut;
-                        cmd.Parameters.Add("@kg", MySqlDbType.VarChar).Value = kg;
+                        cmd.Parameters.Add("@kg", MySqlDbType.Double).Value = peso;
                         cmd.Parameters.Add("@lote", MySqlDbType.VarChar).Value = lote;
                         cmd.Parameters.Add("@price", MySqlDbType.Double).Value = price;
                         cmd.Parameters.Add("@info", MySqlDbType.VarChar).Value = info;
@@ -397,19 +395,74 @@ namespace WindowsFormsApp1
             }
         }
 
+        public List<Product> getProduct(string idproduct)
+        {
+            listProducts = new List<Product>();
+            //string query = "SELECT * FROM `subproduct` WHERE `name` LIKE '%" + product + "%'";
+            string query = "SELECT distinct name,size,kg,quantity,price,info,lote,dateIn,tipoProducto_idtipoProducto FROM `subproduct` WHERE `idsubProduct` = "+idproduct+";";
+           
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    string now = dataReader["dateIn"].ToString();
+                    DateTime ahora = DateTime.Now;
+                    Product producto = new Product(dataReader["name"].ToString(), dataReader["size"].ToString(), dataReader["kg"].ToString(), dataReader["quantity"].ToString(), dataReader["price"].ToString(), ahora, dataReader["info"].ToString(), dataReader["lote"].ToString(), dataReader["tipoProducto_idtipoProducto"].ToString());
+                    listProducts.Add(producto);
+                }
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return listProducts;
+            }
+            else
+            {
+                return listProducts;
+            }
+        }
+
 
         //Update statement
-        public int Update(Product product)
+        public int Update(Product product, Product productAnterior, int tipOperacion, string idsubproduct)
         {
-            string name = product.getName();
-            string size = product.getSize();
+            //datos nuevos
             string quantity = product.getQuantity();
             string kg = product.getKg();
-            string price = product.getPrice();
-            string idProduct = this.idProduct(name);
-            string query = "";
+            quantity = quantity.Replace(".", ",");
+            kg = kg.Replace(".", ",");
+
+            //valores identificativos
+            double peso;
+            double cantidad;
             
-            query = "UPDATE `mydb`.`subproduct`SET `quantity` = @quantity, `price` = @price WHERE `idproduct` = @idProduct";
+            //datos viejos
+            string cantidadAnterior = productAnterior.getQuantity();
+            string pesoAnterior = productAnterior.getKg();
+            cantidadAnterior = cantidadAnterior.Replace(".", ",");
+            pesoAnterior = pesoAnterior.Replace(".", ",");
+
+            if (tipOperacion == 1)
+            {//es suma insert
+                cantidad = double.Parse(quantity) + double.Parse(cantidadAnterior);
+                peso = double.Parse(kg) + double.Parse(pesoAnterior);
+            }
+            else
+            {
+                cantidad =  double.Parse(cantidadAnterior) - double.Parse(quantity) ;
+                peso = double.Parse(pesoAnterior) - double.Parse(kg);
+            }
+
+            string query = "";
+            query = "UPDATE `mydb`.`subproduct` SET `quantity` = @quantity, `kg` = @kg WHERE `idsubProduct` = @idsubProduct";
             
             if (this.OpenConnection() == true)
             {
@@ -418,10 +471,9 @@ namespace WindowsFormsApp1
                     //Create Command
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
-                        cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
-                        cmd.Parameters.Add("@size", MySqlDbType.VarChar).Value = size;
-                        cmd.Parameters.Add("@kg", MySqlDbType.Double).Value = kg;
-                        cmd.Parameters.Add("@price", MySqlDbType.Double).Value = price;
+                        cmd.Parameters.Add("@idsubProduct", MySqlDbType.Int32).Value = idsubproduct;
+                        cmd.Parameters.Add("@quantity", MySqlDbType.Double).Value = cantidad;
+                        cmd.Parameters.Add("@kg", MySqlDbType.Double).Value = peso;                        
                         return cmd.ExecuteNonQuery();
                     }
                 }
@@ -444,7 +496,7 @@ namespace WindowsFormsApp1
         }
         public string getNombreProduct(string id)
         {
-            string query = "SELECT * FROM tipoProducto where `idtipoProducto`="+id;
+            string query = "SELECT * FROM subproduct where `idsubProduct`="+id;
             //Create a list to store the result
             string nombre = "No encontrado";
             //Open connection
@@ -458,7 +510,7 @@ namespace WindowsFormsApp1
                 //Read the data and store them in the list      
                 while (dataReader.Read())
                 {
-                    nombre = dataReader["tipo"].ToString();
+                    nombre = dataReader["size"].ToString();
                    
                 }
 
@@ -548,7 +600,42 @@ namespace WindowsFormsApp1
                 return list;
             }
         }
-        public List<ProductInvoice> SelectProducts()
+
+        public List<tipo> getTipoExist()
+        {
+            string query = "SELECT DISTINCT size FROM `subproduct`;";
+            //Create a list to store the result
+            List<tipo> list = new List<tipo>();
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list      
+                while (dataReader.Read())
+                {
+                    tipo producto = new tipo(dataReader["size"].ToString());
+                    list.Add(producto);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return list;
+            }
+            else
+            {
+                return list;
+            }
+        }
+        public List<ProductInvoice> SelectProductsToInvoice()
         {
             string query = "SELECT * FROM invoice_has_product where `invoice_idinvoice` ="+lastId;
             //Create a list to store the result

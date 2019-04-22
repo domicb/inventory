@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
         private void Form4_Load(object sender, EventArgs e)
         {
             List<tipo> nuevalista = new List<tipo>();
-            nuevalista = nuevaConexion.SelectTipo();
+            nuevalista = nuevaConexion.getTipoExist();
             int contador = 0;
             foreach (var item in nuevalista)
             {
@@ -39,9 +39,6 @@ namespace WindowsFormsApp1
                 comboBoxCliente.Items.Add(newlistCliente.ElementAt(contador2).getNombre());
                 contador2++;
             }
-
-            //si no se selecciona cliente ni tipo producto no podemos dejar que guarde factura
-            buttonAlbaran.Enabled = false;
             //si no hay tipo ni cliente no podemos añadir producto
             buttonProducto.Enabled = false;
             //total solo lectura
@@ -52,10 +49,9 @@ namespace WindowsFormsApp1
 
         public void loadGrid()
         {
-
             if (nuevaConexion.OpenConnection() == true)
             {
-                listaDatos = nuevaConexion.SelectProducts();
+                listaDatos = nuevaConexion.SelectProductsToInvoice();
                 dataGridView1.Rows.Clear();
                 int n = listaDatos.Count();
                 int i = 0;
@@ -92,19 +88,65 @@ namespace WindowsFormsApp1
 
             if (comboBoxCliente.Text != "" && comboBoxTipo.Text != "" && textBoxTotal.Text != "")
             {
-
                 string canti = textBoxCantidad.Text;
                 string preci = textBoxPrecio.Text;
                 string total = textBoxTotal.Text;
+                string peso = textBoxPeso.Text;
                 canti = canti.Replace(".", ",");
                 preci = preci.Replace(".", ",");
-                string product = comboBoxTipo.Text;
-                string peso = textBoxPeso.Text;
+                peso = peso.Replace(".",",");
+                string tipoProduct = comboBoxTipo.Text;
+                string info = textBoxInfo.Text;
+                
+                string lote = textBoxLote.Text;
 
-                string idproduct = nuevaConexion.idProduct(product);
-                nuevaConexion.InsertProductInvoice(idproduct,preci,canti,total,peso);
-                this.loadGrid();
+                //necesitamos llamar a exist y mandar el lote
+                string idtipoProduct = nuevaConexion.idtipoProduct(tipoProduct);
+                              
+                Product product = new Product("Nombre", tipoProduct, peso, canti, preci, DateTime.Now, info, lote, idtipoProduct);
+                lote = product.getLote();
+                //comrpobamos si existe en existencias tablasubproduct 
+                string idsubproduct = nuevaConexion.existe(idtipoProduct, lote);
+                int cuantos = 0;
+                cuantos = Int32.Parse(idsubproduct);
 
+                if (cuantos > 0)//si existe el producto
+                {
+                    int operacion = 0;
+                    List<Product> proAnterior = new List<Product>();
+                    proAnterior = nuevaConexion.getProduct(idsubproduct);
+                    DateTime ahora = DateTime.Now;
+                    Product productAnterior = new Product("Nombre", "Tamaño", proAnterior.ElementAt(0).getKg(), proAnterior.ElementAt(0).getQuantity(), "Precio", ahora, "Entrada", "Lote", idtipoProduct);
+
+                    double pes = double.Parse(productAnterior.getKg());
+
+                    double qua = double.Parse(productAnterior.getQuantity());
+
+                    double pes1 = double.Parse(product.getKg());
+
+                    double qua2 = double.Parse(product.getQuantity());
+
+
+                    if (pes > pes1 && qua > qua2)//si quedan existencias suficientes
+                    {
+                        nuevaConexion.Update(product, productAnterior, operacion, idsubproduct);
+                        nuevaConexion.InsertProductInvoice(idsubproduct, preci, canti, total, peso);
+                        this.loadGrid();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No existen existencias suficientes para retirar esa cantidad, por favor visualiza la tabla");
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("No existe ningún registro de producto con ese tipo y lote");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Faltan datos para ingresar el producto");
             }
         }
 

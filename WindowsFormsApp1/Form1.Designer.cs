@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonNuevo = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -37,13 +40,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.mydbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mydbDataSet = new WindowsFormsApp1.mydbDataSet();
-            this.label2 = new System.Windows.Forms.Label();
             this.buttonConnect = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonSalida = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
@@ -54,20 +52,44 @@
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Adicional = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MenuVertical = new System.Windows.Forms.Panel();
+            this.BarraTitulo = new System.Windows.Forms.Panel();
+            this.panelContenedor = new System.Windows.Forms.Panel();
+            this.btnslide = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.iconcerrar = new System.Windows.Forms.PictureBox();
+            this.iconmaximizar = new System.Windows.Forms.PictureBox();
+            this.iconminimiza = new System.Windows.Forms.PictureBox();
+            this.iconrestaurar = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            this.MenuVertical.SuspendLayout();
+            this.BarraTitulo.SuspendLayout();
+            this.panelContenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnslide)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconcerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconmaximizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconminimiza)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconrestaurar)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonNuevo
             // 
             this.buttonNuevo.BackColor = System.Drawing.SystemColors.Highlight;
-            this.buttonNuevo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonNuevo.Location = new System.Drawing.Point(400, 59);
+            this.buttonNuevo.FlatAppearance.BorderSize = 0;
+            this.buttonNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.buttonNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNuevo.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNuevo.ForeColor = System.Drawing.Color.White;
+            this.buttonNuevo.Image = ((System.Drawing.Image)(resources.GetObject("buttonNuevo.Image")));
+            this.buttonNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonNuevo.Location = new System.Drawing.Point(0, 133);
             this.buttonNuevo.Name = "buttonNuevo";
-            this.buttonNuevo.Size = new System.Drawing.Size(113, 39);
+            this.buttonNuevo.Size = new System.Drawing.Size(250, 40);
             this.buttonNuevo.TabIndex = 0;
             this.buttonNuevo.Text = "Nueva Entrada";
             this.buttonNuevo.UseVisualStyleBackColor = false;
@@ -77,7 +99,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Info;
-            this.label1.Location = new System.Drawing.Point(462, 728);
+            this.label1.Location = new System.Drawing.Point(462, 885);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(438, 13);
             this.label1.TabIndex = 2;
@@ -95,7 +117,19 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridView1.ColumnHeadersHeight = 30;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
             this.size,
@@ -103,14 +137,34 @@
             this.Cantidad,
             this.Lote,
             this.Adicional});
-            this.dataGridView1.Location = new System.Drawing.Point(49, 104);
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.SteelBlue;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1024, 584);
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridView1.RowHeadersVisible = false;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(1283, 857);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick_1);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
             // mydbDataSetBindingSource
             // 
@@ -122,77 +176,45 @@
             this.mydbDataSet.DataSetName = "mydbDataSet";
             this.mydbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.label2.Location = new System.Drawing.Point(1236, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "label2";
-            this.label2.Click += new System.EventHandler(this.label2_Click_1);
-            // 
             // buttonConnect
             // 
-            this.buttonConnect.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.buttonConnect.Location = new System.Drawing.Point(998, 41);
+            this.buttonConnect.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonConnect.FlatAppearance.BorderSize = 0;
+            this.buttonConnect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(91)))));
+            this.buttonConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonConnect.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConnect.ForeColor = System.Drawing.Color.White;
+            this.buttonConnect.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonConnect.Location = new System.Drawing.Point(0, 407);
             this.buttonConnect.Name = "buttonConnect";
-            this.buttonConnect.Size = new System.Drawing.Size(75, 23);
+            this.buttonConnect.Size = new System.Drawing.Size(250, 40);
             this.buttonConnect.TabIndex = 7;
-            this.buttonConnect.Text = "Conectar";
+            this.buttonConnect.Text = "Imprimir";
             this.buttonConnect.UseVisualStyleBackColor = false;
             this.buttonConnect.Click += new System.EventHandler(this.buttonConnect_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1006, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Estado";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(49, 62);
+            this.pictureBox1.Location = new System.Drawing.Point(127, 8);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(310, 36);
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inicioToolStripMenuItem,
-            this.productosToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1134, 24);
-            this.menuStrip1.TabIndex = 10;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // inicioToolStripMenuItem
-            // 
-            this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
-            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.inicioToolStripMenuItem.Text = "Inicio";
-            this.inicioToolStripMenuItem.Click += new System.EventHandler(this.inicioToolStripMenuItem_Click);
-            // 
-            // productosToolStripMenuItem
-            // 
-            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            this.productosToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
-            this.productosToolStripMenuItem.Text = "Productos";
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(539, 59);
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 202);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 39);
+            this.button1.Size = new System.Drawing.Size(250, 40);
             this.button1.TabIndex = 11;
             this.button1.Text = "Nuevo Cliente";
             this.button1.UseVisualStyleBackColor = false;
@@ -201,10 +223,16 @@
             // buttonSalida
             // 
             this.buttonSalida.BackColor = System.Drawing.SystemColors.Highlight;
-            this.buttonSalida.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonSalida.Location = new System.Drawing.Point(674, 59);
+            this.buttonSalida.FlatAppearance.BorderSize = 0;
+            this.buttonSalida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.buttonSalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSalida.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalida.ForeColor = System.Drawing.Color.White;
+            this.buttonSalida.Image = ((System.Drawing.Image)(resources.GetObject("buttonSalida.Image")));
+            this.buttonSalida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSalida.Location = new System.Drawing.Point(0, 274);
             this.buttonSalida.Name = "buttonSalida";
-            this.buttonSalida.Size = new System.Drawing.Size(113, 39);
+            this.buttonSalida.Size = new System.Drawing.Size(250, 40);
             this.buttonSalida.TabIndex = 12;
             this.buttonSalida.Text = "Registrar Salida";
             this.buttonSalida.UseVisualStyleBackColor = false;
@@ -225,13 +253,13 @@
             // 
             this.size.HeaderText = "Tamaño";
             this.size.Name = "size";
-            this.size.Width = 120;
+            this.size.Width = 250;
             // 
             // kg
             // 
             this.kg.HeaderText = "Peso Neto Kg";
             this.kg.Name = "kg";
-            this.kg.Width = 80;
+            this.kg.Width = 150;
             // 
             // Cantidad
             // 
@@ -247,24 +275,147 @@
             // 
             this.Adicional.HeaderText = "Adicional";
             this.Adicional.Name = "Adicional";
-            this.Adicional.Width = 400;
+            this.Adicional.Width = 500;
+            // 
+            // MenuVertical
+            // 
+            this.MenuVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.MenuVertical.Controls.Add(this.button2);
+            this.MenuVertical.Controls.Add(this.pictureBox2);
+            this.MenuVertical.Controls.Add(this.buttonNuevo);
+            this.MenuVertical.Controls.Add(this.button1);
+            this.MenuVertical.Controls.Add(this.buttonSalida);
+            this.MenuVertical.Controls.Add(this.buttonConnect);
+            this.MenuVertical.Dock = System.Windows.Forms.DockStyle.Left;
+            this.MenuVertical.Location = new System.Drawing.Point(0, 0);
+            this.MenuVertical.Name = "MenuVertical";
+            this.MenuVertical.Size = new System.Drawing.Size(250, 907);
+            this.MenuVertical.TabIndex = 13;
+            // 
+            // BarraTitulo
+            // 
+            this.BarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.BarraTitulo.Controls.Add(this.iconrestaurar);
+            this.BarraTitulo.Controls.Add(this.iconminimiza);
+            this.BarraTitulo.Controls.Add(this.iconmaximizar);
+            this.BarraTitulo.Controls.Add(this.iconcerrar);
+            this.BarraTitulo.Controls.Add(this.btnslide);
+            this.BarraTitulo.Controls.Add(this.pictureBox1);
+            this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BarraTitulo.Location = new System.Drawing.Point(250, 0);
+            this.BarraTitulo.Name = "BarraTitulo";
+            this.BarraTitulo.Size = new System.Drawing.Size(1251, 50);
+            this.BarraTitulo.TabIndex = 14;
+            this.BarraTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.BarraTitulo_Paint);
+            this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
+            // 
+            // panelContenedor
+            // 
+            this.panelContenedor.Controls.Add(this.dataGridView1);
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(250, 50);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(1251, 857);
+            this.panelContenedor.TabIndex = 15;
+            // 
+            // btnslide
+            // 
+            this.btnslide.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnslide.Image = ((System.Drawing.Image)(resources.GetObject("btnslide.Image")));
+            this.btnslide.Location = new System.Drawing.Point(6, 8);
+            this.btnslide.Name = "btnslide";
+            this.btnslide.Size = new System.Drawing.Size(35, 35);
+            this.btnslide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnslide.TabIndex = 10;
+            this.btnslide.TabStop = false;
+            this.btnslide.Click += new System.EventHandler(this.btnslide_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(26, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(218, 50);
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            // 
+            // iconcerrar
+            // 
+            this.iconcerrar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconcerrar.Image = ((System.Drawing.Image)(resources.GetObject("iconcerrar.Image")));
+            this.iconcerrar.Location = new System.Drawing.Point(1203, 8);
+            this.iconcerrar.Name = "iconcerrar";
+            this.iconcerrar.Size = new System.Drawing.Size(25, 25);
+            this.iconcerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconcerrar.TabIndex = 11;
+            this.iconcerrar.TabStop = false;
+            this.iconcerrar.Click += new System.EventHandler(this.iconcerrar_Click);
+            // 
+            // iconmaximizar
+            // 
+            this.iconmaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconmaximizar.Image = ((System.Drawing.Image)(resources.GetObject("iconmaximizar.Image")));
+            this.iconmaximizar.Location = new System.Drawing.Point(1172, 8);
+            this.iconmaximizar.Name = "iconmaximizar";
+            this.iconmaximizar.Size = new System.Drawing.Size(25, 25);
+            this.iconmaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconmaximizar.TabIndex = 12;
+            this.iconmaximizar.TabStop = false;
+            this.iconmaximizar.Click += new System.EventHandler(this.iconmaximizar_Click);
+            // 
+            // iconminimiza
+            // 
+            this.iconminimiza.Image = ((System.Drawing.Image)(resources.GetObject("iconminimiza.Image")));
+            this.iconminimiza.Location = new System.Drawing.Point(1106, 8);
+            this.iconminimiza.Name = "iconminimiza";
+            this.iconminimiza.Size = new System.Drawing.Size(25, 25);
+            this.iconminimiza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconminimiza.TabIndex = 14;
+            this.iconminimiza.TabStop = false;
+            this.iconminimiza.Click += new System.EventHandler(this.iconminimiza_Click);
+            // 
+            // iconrestaurar
+            // 
+            this.iconrestaurar.Image = ((System.Drawing.Image)(resources.GetObject("iconrestaurar.Image")));
+            this.iconrestaurar.Location = new System.Drawing.Point(1141, 8);
+            this.iconrestaurar.Name = "iconrestaurar";
+            this.iconrestaurar.Size = new System.Drawing.Size(25, 25);
+            this.iconrestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconrestaurar.TabIndex = 15;
+            this.iconrestaurar.TabStop = false;
+            this.iconrestaurar.Visible = false;
+            this.iconrestaurar.Click += new System.EventHandler(this.iconrestaurar_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(0, 339);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(250, 40);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Estadisticas";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 749);
-            this.Controls.Add(this.buttonSalida);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.buttonConnect);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1501, 907);
+            this.Controls.Add(this.panelContenedor);
+            this.Controls.Add(this.BarraTitulo);
+            this.Controls.Add(this.MenuVertical);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonNuevo);
-            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormLogin";
             this.Text = "Mariscos Carrillo";
@@ -273,8 +424,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.MenuVertical.ResumeLayout(false);
+            this.BarraTitulo.ResumeLayout(false);
+            this.panelContenedor.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnslide)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconcerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconmaximizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconminimiza)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconrestaurar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,23 +447,28 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource mydbDataSetBindingSource;
         private mydbDataSet mydbDataSet;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonConnect;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonSalida;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn size;
         private System.Windows.Forms.DataGridViewTextBoxColumn kg;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lote;
         private System.Windows.Forms.DataGridViewTextBoxColumn Adicional;
-        private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.Panel MenuVertical;
+        private System.Windows.Forms.Panel BarraTitulo;
+        private System.Windows.Forms.Panel panelContenedor;
+        private System.Windows.Forms.PictureBox btnslide;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox iconminimiza;
+        private System.Windows.Forms.PictureBox iconmaximizar;
+        private System.Windows.Forms.PictureBox iconcerrar;
+        private System.Windows.Forms.PictureBox iconrestaurar;
+        private System.Windows.Forms.Button button2;
     }
 }
 

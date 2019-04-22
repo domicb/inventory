@@ -39,6 +39,10 @@ namespace WindowsFormsApp1
 
         public string getLote()
         {
+            if (lote == "")
+            {
+                lote = "Sin definir";
+            }
             return lote;
         }
 
@@ -64,6 +68,10 @@ namespace WindowsFormsApp1
 
         public string getPrice()
         {
+            if(price == "")
+            {
+                price ="-1";
+            }
             return price;
         }
 

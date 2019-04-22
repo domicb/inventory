@@ -31,7 +31,7 @@ namespace WindowsFormsApp1
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (textDescription.Text != "")
+            if (comboBoxTipo.Text != "")
             {               
                 string name = textDescription.Text;
                 string size = comboBoxTipo.SelectedItem.ToString();
@@ -43,19 +43,44 @@ namespace WindowsFormsApp1
                 string price = textBoxPrecio.Text;
                 string info = textBoxInfo.Text;             
                 string lote = textBoxLote.Text;
+
                 string tipo = comboBoxTipo.SelectedItem.ToString();
-                tipo = nuevaConexion.idTipo(tipo);
+                //solicitamos la id del tipo
+                tipo = nuevaConexion.idtipoProduct(tipo);
+                //necesitamos saber si existe algún registro de producto con ese tipo, sería update no insert               
+                
                 int idTipo = int.Parse(tipo);
                 Product product = new Product(name, size, weight, quantity, price, DateTime.Now, info, lote, tipo);
+                lote = product.getLote();//lo traemos de nuevo para parsear dato vacio
+                string idsubproduct = nuevaConexion.existe(tipo, lote);                
+                int tieneElementos = Int32.Parse(idsubproduct);
 
-                nuevaConexion.OpenConnection();
-                nuevaConexion.Insert(product,idTipo);
-                MessageBox.Show("El producto: " + name + " se ha registrado correctamente en la Base de datos");
-                nuevaConexion.CloseConnection();
+                if (tieneElementos > 0)
+                {//nos creamos una lista para recoger los valores anteriores
+                    List<Product> proAnterior = new List<Product>();
+                    proAnterior = nuevaConexion.getProduct(idsubproduct);
+
+                    //indicamos que es una actualización por suma insert product
+                    int tipOperacion = 1;
+
+                    DateTime ahora = DateTime.Now;
+                    //recogemos los valores anteriores para sumarlos o restarlos
+                    Product productAnterior = new Product("Nombre","Tamaño",proAnterior.ElementAt(0).getKg(),proAnterior.ElementAt(0).getQuantity(),"Precio",ahora,"Entrada","Lote",tipo);
+                    nuevaConexion.Update(product,productAnterior,tipOperacion,idsubproduct);
+                    MessageBox.Show("Existe un registro para este producto: "+idsubproduct+" por tanto hemos actualizado su peso y cantidad");
+                }
+                else
+                {
+                    nuevaConexion.OpenConnection();
+                    nuevaConexion.Insert(product);
+                    MessageBox.Show("El producto con id: " + idsubproduct + " se ha registrado correctamente en la Base de datos");
+                    nuevaConexion.CloseConnection();
+                }              
+
             }
             else
             {
-                labelError.Text = "El campo nombre está vacio";
+                labelError.Text = "El campo Tipo Producto está vacio";
             }
         }
 
@@ -88,7 +113,7 @@ namespace WindowsFormsApp1
         private void buttonModify_Click(object sender, EventArgs e)
         {
 
-            //string padre = comboBoxPadre.Text;
+            /*//string padre = comboBoxPadre.Text;
             string name = textDescription.Text;
             //string tipo = comboBoxTipo.Text;
             string size = comboBoxTipo.Text;
@@ -103,7 +128,7 @@ namespace WindowsFormsApp1
             nuevaConexion.OpenConnection();
             nuevaConexion.Update(product);
             MessageBox.Show("El producto: " + name + " se ha actualizado correctamente en la Base de datos");
-            nuevaConexion.CloseConnection();
+            nuevaConexion.CloseConnection();*/
             
         }
 
