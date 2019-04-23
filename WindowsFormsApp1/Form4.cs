@@ -22,6 +22,7 @@ namespace WindowsFormsApp1
 
         private void Form4_Load(object sender, EventArgs e)
         {
+            buttonFactura.Enabled = true;
             List<tipo> nuevalista = new List<tipo>();
             nuevalista = nuevaConexion.getTipoExist();
             int contador = 0;
@@ -176,16 +177,19 @@ namespace WindowsFormsApp1
 
         private void textBoxCantidad_TextChanged(object sender, EventArgs e)
         {
-            if(textBoxCantidad.Text != "" && textBoxPrecio.Text != "")
+            if(textBoxCantidad.Text != "" && textBoxPrecio.Text != "" && textBoxPeso.Text != "")
             {
                 buttonProducto.Enabled = true;
                 string canti = textBoxCantidad.Text;
                 string preci = textBoxPrecio.Text;
+                string peso = textBoxPeso.Text;
+                peso = peso.Replace(".", ",");
                 canti = canti.Replace(".",",");
                 preci = preci.Replace(".", ",");
+                double pesoProduct = double.Parse(peso);
                 double cantidad = double.Parse(canti);
                 double precio = double.Parse(preci);
-                double total = cantidad * precio;
+                double total = pesoProduct * precio;
                 //total = Math.Truncate(total);
                 textBoxTotal.Text = total.ToString();
             }
@@ -193,7 +197,7 @@ namespace WindowsFormsApp1
 
         private void textBoxPrecio_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxCantidad.Text != "" && textBoxPrecio.Text != "")
+            if (textBoxCantidad.Text != "" && textBoxPrecio.Text != "" && textBoxPeso.Text != "")
             {
                 buttonProducto.Enabled = true;
                 string canti = textBoxCantidad.Text;
@@ -210,9 +214,18 @@ namespace WindowsFormsApp1
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            string id_client = nuevaConexion.idClient(comboBoxCliente.Text);
-            
-            nuevaConexion.InsertInvoice(id_client);
+            if(comboBoxCliente.Text != "")
+            {
+                string id_client = nuevaConexion.idClient(comboBoxCliente.Text);
+
+                nuevaConexion.InsertInvoice(id_client);
+                buttonFactura.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Necesitamos referenciar un cliente para crear la factura");
+            }
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

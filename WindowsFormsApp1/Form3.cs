@@ -170,5 +170,10 @@ namespace WindowsFormsApp1
                 LabelPesoMedio.Text = media.ToString();
             }
         }
+
+        private void comboBoxTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

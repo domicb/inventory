@@ -49,7 +49,7 @@
             this.textBoxTotal = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxPeso = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonFactura = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxTotalFactura = new System.Windows.Forms.TextBox();
             this.textBoxLote = new System.Windows.Forms.TextBox();
@@ -238,19 +238,19 @@
             this.textBoxPeso.Size = new System.Drawing.Size(100, 20);
             this.textBoxPeso.TabIndex = 18;
             // 
-            // button1
+            // buttonFactura
             // 
-            this.button1.BackColor = System.Drawing.Color.SteelBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(83, 194);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(207, 34);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "1º Registrar Factura";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.buttonFactura.BackColor = System.Drawing.Color.SteelBlue;
+            this.buttonFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFactura.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFactura.ForeColor = System.Drawing.Color.White;
+            this.buttonFactura.Location = new System.Drawing.Point(83, 194);
+            this.buttonFactura.Name = "buttonFactura";
+            this.buttonFactura.Size = new System.Drawing.Size(207, 34);
+            this.buttonFactura.TabIndex = 19;
+            this.buttonFactura.Text = "1º Registrar Factura";
+            this.buttonFactura.UseVisualStyleBackColor = false;
+            this.buttonFactura.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // label7
             // 
@@ -296,7 +296,7 @@
             this.Controls.Add(this.textBoxLote);
             this.Controls.Add(this.textBoxTotalFactura);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonFactura);
             this.Controls.Add(this.textBoxPeso);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBoxTotal);
@@ -345,7 +345,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxPeso;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonFactura;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxTotalFactura;
         private System.Windows.Forms.TextBox textBoxLote;
