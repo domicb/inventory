@@ -5,7 +5,7 @@ SELECT *
 FROM `mydb`.`subproduct`;
 
 SELECT *
-FROM `mydb`.`tipoproducto`;
+FROM `mydb`.`tipoproducto` order by `tipo`;
 
 DELETE FROM `mydb`.`tipoproducto`
 WHERE `idtipoProducto` = 39
@@ -14,12 +14,22 @@ WHERE `idtipoProducto` = 39
 
 /*UPDATE `mydb`.`tipoproducto`
 SET
-`tipo` = "Gamba G4" where `idtipoProducto` = 41;*/
+`tipo` = "Cola Gambón Mozambique" where `idtipoProducto` = 28;*/
 
+/*UPDATE `mydb`.`subproduct`
+SET
+`size` = "Gamba G3B" where `idsubProduct` = 207;*/
 
 SELECT *
-FROM `mydb`.`subproduct`;
+FROM `mydb`.`subproduct` where `size` = 'Gamba G3B';
 
 /*DELETE FROM `mydb`.`subproduct`
-WHERE `idsubProduct` = 566; /*> 669 AND  `idsubProduct` < 673;
+WHERE `idsubProduct` = 228; /*> 669 AND  `idsubProduct` < 681;
+
+SELECT *
+FROM `mydb`.`invoice`;
+
+SELECT *
+FROM `mydb`.`invoice_has_product`;
+
 

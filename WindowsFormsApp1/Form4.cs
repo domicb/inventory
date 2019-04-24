@@ -177,7 +177,7 @@ namespace WindowsFormsApp1
 
         private void textBoxCantidad_TextChanged(object sender, EventArgs e)
         {
-            if(textBoxCantidad.Text != "" && textBoxPrecio.Text != "" && textBoxPeso.Text != "")
+          /*  if( textBoxPrecio.Text != "" && textBoxPeso.Text != "")
             {
                 buttonProducto.Enabled = true;
                 string canti = textBoxCantidad.Text;
@@ -192,21 +192,23 @@ namespace WindowsFormsApp1
                 double total = pesoProduct * precio;
                 //total = Math.Truncate(total);
                 textBoxTotal.Text = total.ToString();
-            }
+            }*/
         }
 
         private void textBoxPrecio_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxCantidad.Text != "" && textBoxPrecio.Text != "" && textBoxPeso.Text != "")
+            if ( textBoxPrecio.Text != "" && textBoxPeso.Text != "")
             {
                 buttonProducto.Enabled = true;
                 string canti = textBoxCantidad.Text;
                 string preci = textBoxPrecio.Text;
+                string peso = textBoxPeso.Text;
+                peso = peso.Replace(".", ",");
                 canti = canti.Replace(".", ",");
                 preci = preci.Replace(".", ",");
-                double cantidad = double.Parse(canti);
+                double pesoProduct = double.Parse(peso);
                 double precio = double.Parse(preci);
-                double total = cantidad * precio;
+                double total = pesoProduct * precio;
                 //total = Math.Truncate(total);
                 textBoxTotal.Text = total.ToString();
             }
@@ -231,6 +233,25 @@ namespace WindowsFormsApp1
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void textBoxPeso_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxPrecio.Text != "" && textBoxPeso.Text != "")
+            {
+                buttonProducto.Enabled = true;
+                string canti = textBoxCantidad.Text;
+                string preci = textBoxPrecio.Text;
+                string peso = textBoxPeso.Text;
+                peso = peso.Replace(".", ",");
+                canti = canti.Replace(".", ",");
+                preci = preci.Replace(".", ",");
+                double pesoProduct = double.Parse(peso);               
+                double precio = double.Parse(preci);
+                double total = pesoProduct * precio;
+                //total = Math.Truncate(total);
+                textBoxTotal.Text = total.ToString();
+            }
         }
     }
 }

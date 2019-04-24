@@ -237,6 +237,7 @@
             this.textBoxPeso.Name = "textBoxPeso";
             this.textBoxPeso.Size = new System.Drawing.Size(100, 20);
             this.textBoxPeso.TabIndex = 18;
+            this.textBoxPeso.TextChanged += new System.EventHandler(this.textBoxPeso_TextChanged);
             // 
             // buttonFactura
             // 
