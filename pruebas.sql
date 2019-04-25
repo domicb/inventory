@@ -7,8 +7,8 @@ FROM `mydb`.`subproduct`;
 SELECT *
 FROM `mydb`.`tipoproducto` order by `tipo`;
 
-DELETE FROM `mydb`.`tipoproducto`
-WHERE `idtipoProducto` = 39
+/*DELETE FROM `mydb`.`tipoproducto`
+WHERE `idtipoProducto` = 40*/
 
 
 

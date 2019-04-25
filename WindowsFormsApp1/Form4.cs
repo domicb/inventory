@@ -128,7 +128,7 @@ namespace WindowsFormsApp1
                     double qua2 = double.Parse(product.getQuantity());
 
 
-                    if (pes > pes1 && qua > qua2)//si quedan existencias suficientes
+                    if (pes >= pes1 && qua >= qua2)//si quedan existencias suficientes
                     {
                         nuevaConexion.Update(product, productAnterior, operacion, idsubproduct);
                         nuevaConexion.InsertProductInvoice(idsubproduct, preci, canti, total, peso);
