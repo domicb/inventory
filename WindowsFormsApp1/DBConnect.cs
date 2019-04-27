@@ -137,7 +137,7 @@ namespace WindowsFormsApp1
 
         public string idtipoProduct(string name)
         {      
-            string query = "SELECT idtipoProducto FROM `tipoproducto` WHERE `tipo` LIKE '%" + name + "%' limit 1";
+            string query = "SELECT idtipoProducto FROM `tipoproducto` WHERE `tipo` = '" + name +  "'";
             string idProduct = "0";
             if (this.OpenConnection() == true)
             {
@@ -330,6 +330,43 @@ namespace WindowsFormsApp1
             }           
         }
 
+        public void InsertProduct(Product product)
+        {
+            DateTime dateIn = DateTime.Now;
+            string name = product.getName() + " - " + product.getSize();
+            string quantity = product.getQuantity();
+            string kg = product.getKg();
+            string info = product.getInfo() + " - Lote: "+ product.getLote()+ " - Precio: "+ product.getPrice()+ " - Tipo: "+ product.getTipo();
+
+            string query = "INSERT INTO `product`(`name`,`dateIn`,`info`,`nbultos`,`peso`)VALUES(@name, @dateIn, @info, @nbultos, @peso);";
+
+            if (this.OpenConnection() == true)
+            {
+                try
+                {
+                    //Create Command
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
+                        cmd.Parameters.Add("@dateIn", MySqlDbType.DateTime).Value = dateIn;
+                        cmd.Parameters.Add("@info", MySqlDbType.VarChar).Value = info;
+                        cmd.Parameters.Add("@nbultos", MySqlDbType.VarChar).Value = quantity;
+                        cmd.Parameters.Add("@peso", MySqlDbType.VarChar).Value = kg;                       
+                        cmd.ExecuteNonQuery();
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("error" + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay conexión");
+            }
+        }
+
         //Insert statement
         public void Insert(Product product)
         {
@@ -434,9 +471,12 @@ namespace WindowsFormsApp1
         //Update statement
         public int Update(Product product, Product productAnterior, int tipOperacion, string idsubproduct)
         {
+            DateTime ahora = DateTime.Now;
             //datos nuevos
             string quantity = product.getQuantity();
             string kg = product.getKg();
+            string info = product.getInfo();
+            string infoUpdate = "Se actualiza el producto:" + product.getName() + " el día: " + ahora + " con un peso de: " + product.getKg() + " una cantidad de: " + product.getQuantity()+" y un precio de: "+product.getPrice()+" con lote: "+product.getLote()+" Info.Adiccional: "+product.getInfo();
             quantity = quantity.Replace(".", ",");
             kg = kg.Replace(".", ",");
 
@@ -462,7 +502,7 @@ namespace WindowsFormsApp1
             }
 
             string query = "";
-            query = "UPDATE `mydb`.`subproduct` SET `quantity` = @quantity, `kg` = @kg WHERE `idsubProduct` = @idsubProduct";
+            query = "UPDATE `mydb`.`subproduct` SET `quantity` = @quantity, `kg` = @kg, `dateOut` = @dateOut, `info` = @info WHERE `idsubProduct` = @idsubProduct";
             
             if (this.OpenConnection() == true)
             {
@@ -470,17 +510,21 @@ namespace WindowsFormsApp1
                 {
                     //Create Command
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
-                    {
+                    {//TODO
+                        //CAMBIAR DATEOUT A VARCHAR EN LA BBDD DE CASA
+                        //NECESITAMOS REGISTRAR DE ALGUNA MANERA LA ENTRADA CUANDO TIENE UN LOTE EXISTENTE
                         cmd.Parameters.Add("@idsubProduct", MySqlDbType.Int32).Value = idsubproduct;
                         cmd.Parameters.Add("@quantity", MySqlDbType.Double).Value = cantidad;
-                        cmd.Parameters.Add("@kg", MySqlDbType.Double).Value = peso;                        
+                        cmd.Parameters.Add("@kg", MySqlDbType.Double).Value = peso;
+                        cmd.Parameters.Add("@info", MySqlDbType.VarChar).Value = info;
+                        cmd.Parameters.Add("@dateOut", MySqlDbType.VarChar).Value = infoUpdate;
                         return cmd.ExecuteNonQuery();
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("error" + ex.Message);
-                    return -1;
+                    return -1;                  
                 }
 
             }

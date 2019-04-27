@@ -59,13 +59,15 @@ namespace WindowsFormsApp1
                 {//nos creamos una lista para recoger los valores anteriores
                     List<Product> proAnterior = new List<Product>();
                     proAnterior = nuevaConexion.getProduct(idsubproduct);
+                    nuevaConexion.InsertProduct(product);                  
 
                     //indicamos que es una actualización por suma insert product
                     int tipOperacion = 1;
 
                     DateTime ahora = DateTime.Now;
                     //recogemos los valores anteriores para sumarlos o restarlos
-                    Product productAnterior = new Product("Nombre","Tamaño",proAnterior.ElementAt(0).getKg(),proAnterior.ElementAt(0).getQuantity(),"Precio",ahora,"Entrada","Lote",tipo);
+                    Product productAnterior = new Product(proAnterior.ElementAt(0).getName(),proAnterior.ElementAt(0).getSize(),proAnterior.ElementAt(0).getKg(),proAnterior.ElementAt(0).getQuantity(),proAnterior.ElementAt(0).getPrice(),ahora,proAnterior.ElementAt(0).getInfo(),proAnterior.ElementAt(0).getLote(),tipo);
+                    nuevaConexion.InsertProduct(productAnterior);
                     nuevaConexion.Update(product,productAnterior,tipOperacion,idsubproduct);
                     MessageBox.Show("Existe un registro para este producto: "+idsubproduct+" por tanto hemos actualizado su peso y cantidad");
                 }
@@ -76,7 +78,6 @@ namespace WindowsFormsApp1
                     MessageBox.Show("El producto con id: " + idsubproduct + " se ha registrado correctamente en la Base de datos");
                     nuevaConexion.CloseConnection();
                 }              
-
             }
             else
             {
@@ -90,7 +91,7 @@ namespace WindowsFormsApp1
             string weight = textPeso.Text;
             weight = weight.Replace(".", ",");
             quantity = quantity.Replace(".", ",");
-            if (textCantidad.Text != "" && textPeso.Text !="")
+            if (textCantidad.Text != "" && textPeso.Text != "")
             {
                 LabelPesoMedio.BackColor = Color.Green;
                 double peso = double.Parse(weight);

@@ -2,14 +2,16 @@ SELECT *
 FROM `mydb`.`client`;
 
 SELECT *
-FROM `mydb`.`subproduct`;
+FROM `mydb`.`product`;
+
+SELECT `dateOut`
+FROM `mydb`.`subproduct` where `idsubProduct`=700;
 
 SELECT *
 FROM `mydb`.`tipoproducto` order by `tipo`;
 
 /*DELETE FROM `mydb`.`tipoproducto`
-WHERE `idtipoProducto` = 40*/
-
+WHERE `idtipoProducto` = 7*/
 
 
 /*UPDATE `mydb`.`tipoproducto`
@@ -18,13 +20,13 @@ SET
 
 /*UPDATE `mydb`.`subproduct`
 SET
-`size` = "Gamba G3B" where `idsubProduct` = 207;*/
+`quantity` = 108 where `idsubProduct` = 61;*/
 
 SELECT *
-FROM `mydb`.`subproduct` where `size` = 'Gamba G3B';
+FROM `mydb`.`subproduct` where `tipoProducto_idtipoProducto` = 32;
 
 /*DELETE FROM `mydb`.`subproduct`
-WHERE `idsubProduct` = 228; /*> 669 AND  `idsubProduct` < 681;
+WHERE `idsubProduct` = 267; /*> 669 AND  `idsubProduct` < 681;
 
 SELECT *
 FROM `mydb`.`invoice`;

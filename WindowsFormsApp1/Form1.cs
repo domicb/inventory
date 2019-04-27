@@ -46,22 +46,26 @@ namespace WindowsFormsApp1
             {
                 if (nuevaConexion.OpenConnection() == true)
                 {
+                    
                     listaDatos = nuevaConexion.SelectSubProduct();
+                    
                     this.clearDataGrid();
                     int n = listaDatos.Count();   
                     int i = 0;
 
                     foreach (var item in listaDatos)
                     {
-                        dataGridView1.Rows.Add();
-                        dataGridView1.Rows[i].Cells[0].Value = listaDatos.ElementAt(i).getName();
-                        dataGridView1.Rows[i].Cells[1].Value = listaDatos.ElementAt(i).getSize();
-                        dataGridView1.Rows[i].Cells[2].Value = listaDatos.ElementAt(i).getKg();
-                        dataGridView1.Rows[i].Cells[3].Value = listaDatos.ElementAt(i).getQuantity();
-                        dataGridView1.Rows[i].Cells[4].Value = listaDatos.ElementAt(i).getLote();
-                        dataGridView1.Rows[i].Cells[5].Value = listaDatos.ElementAt(i).getInfo();
 
-                        i++;
+                            dataGridView1.Rows.Add();
+                            dataGridView1.Rows[i].Cells[0].Value = listaDatos.ElementAt(i).getName();
+                            dataGridView1.Rows[i].Cells[1].Value = listaDatos.ElementAt(i).getSize();
+                            dataGridView1.Rows[i].Cells[2].Value = listaDatos.ElementAt(i).getKg();
+                            dataGridView1.Rows[i].Cells[3].Value = listaDatos.ElementAt(i).getQuantity();
+                            dataGridView1.Rows[i].Cells[4].Value = listaDatos.ElementAt(i).getLote();
+                            dataGridView1.Rows[i].Cells[5].Value = listaDatos.ElementAt(i).getInfo();
+
+                            i++;
+                        
                     }        
                 }
             }
@@ -267,14 +271,14 @@ namespace WindowsFormsApp1
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if(this.dataGridView1.Columns[e.ColumnIndex].Name == "Cantidad")
+            if(this.dataGridView1.Columns[e.ColumnIndex].Name == "Cantidad" && e.Value != null)
             {
-                if (Convert.ToInt32(e.Value) <= 20)
+                if (double.Parse(e.Value.ToString()) <= 20)
                 {
                     e.CellStyle.ForeColor = Color.BlueViolet;
                     e.CellStyle.BackColor = Color.Gray;
                 }
-                if ( Convert.ToInt32(e.Value) <= 10)
+                if (double.Parse(e.Value.ToString()) <= 10)
                 {
                     e.CellStyle.ForeColor = Color.Red;
                     e.CellStyle.BackColor = Color.Orange;
