@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +16,12 @@ namespace WindowsFormsApp1
     {
         DBConnect nuevaConexion = new DBConnect();
         List<ProductInvoice>listaDatos = new List<ProductInvoice>();
-        string sumaTotal;
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        string idinvoice;
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
         public Form4()
         {
             InitializeComponent();
@@ -66,9 +73,9 @@ namespace WindowsFormsApp1
                     //UPDATE SUBPRODUCT CAMPO QUANTITY OR KG 
                     //IS NECESARY INSERT COUNT PRODUCT?
                     dataGridView1.Rows.Add();
-                    dataGridView1.Rows[i].Cells[0].Value = listaDatos.ElementAt(i).getNombre();
+                    dataGridView1.Rows[i].Cells[0].Value = listaDatos.ElementAt(i).getCantidad();
                     dataGridView1.Rows[i].Cells[1].Value = listaDatos.ElementAt(i).getPeso();
-                    dataGridView1.Rows[i].Cells[2].Value = listaDatos.ElementAt(i).getCantidad();
+                    dataGridView1.Rows[i].Cells[2].Value = listaDatos.ElementAt(i).getNombre();
                     dataGridView1.Rows[i].Cells[3].Value = listaDatos.ElementAt(i).getPrecio();
                     dataGridView1.Rows[i].Cells[4].Value = listaDatos.ElementAt(i).getTotal();
                     partial = listaDatos.ElementAt(i).getTotal();
@@ -78,7 +85,7 @@ namespace WindowsFormsApp1
                 }
 
                 textBoxTotalFactura.Text = sumaParcial.ToString();
-                string idinvoice = nuevaConexion.getIdlast().ToString();
+                idinvoice = nuevaConexion.getIdlast().ToString();
                 nuevaConexion.UpdateInvoice(idinvoice,textBoxTotalFactura.Text);
 
             }
@@ -97,14 +104,13 @@ namespace WindowsFormsApp1
                 preci = preci.Replace(".", ",");
                 peso = peso.Replace(".",",");
                 string tipoProduct = comboBoxTipo.Text;
-                string info = textBoxInfo.Text;
                 
                 string lote = textBoxLote.Text;
 
                 //necesitamos llamar a exist y mandar el lote
                 string idtipoProduct = nuevaConexion.idtipoProduct(tipoProduct);
                               
-                Product product = new Product("Nombre", tipoProduct, peso, canti, preci, DateTime.Now, info, lote, idtipoProduct);
+                Product product = new Product("Nombre", tipoProduct, peso, canti, preci, DateTime.Now, "Sin nada adicional", lote, idtipoProduct);
                 lote = product.getLote();
                 //comrpobamos si existe en existencias tablasubproduct 
                 string idsubproduct = nuevaConexion.existe(idtipoProduct, lote);
@@ -252,6 +258,58 @@ namespace WindowsFormsApp1
                 //total = Math.Truncate(total);
                 textBoxTotal.Text = total.ToString();
             }
+        }
+
+        private void buttonPrint_Click(object sender, EventArgs e)
+        {
+            double total = double.Parse(textBoxTotalFactura.Text);
+            double iva = total * 10 / 100;
+            double sumaTotal = total + iva;
+            PrintDocument doc = new PrintDocument();
+            doc.DefaultPageSettings.Landscape = true;
+            doc.PrinterSettings.PrinterName = "Microsoft Print to PDF";
+
+            PrintPreviewDialog ppd = new PrintPreviewDialog { Document = doc };
+            ((Form)ppd).WindowState = FormWindowState.Maximized;
+
+            doc.PrintPage += delegate (object ev, PrintPageEventArgs ep)
+            {
+                const int DGV_ALTO = 35;
+                int left = ep.MarginBounds.Left, top = ep.MarginBounds.Top+100;
+                DateTime thisDay = DateTime.Today;
+                ep.Graphics.DrawString("MARISCOS CARRILLO - 697 866 650 - ALBARÁN Nº: " + idinvoice, new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left, top - 150);
+                ep.Graphics.DrawString("Avenida de la Marina,6 - 21100 Punta Umbría (Huelva) " + " - " + thisDay.ToString("d"), new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left, top - 120);
+                ep.Graphics.DrawString("Cliente: " + comboBoxCliente.Text, new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left, top-90);
+                foreach (DataGridViewColumn col in dataGridView1.Columns)
+                {
+                    ep.Graphics.DrawString(col.HeaderText, new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left, top);
+                    left += col.Width;
+
+                    if (col.Index < dataGridView1.ColumnCount - 1)
+                        ep.Graphics.DrawLine(Pens.Gray, left - 5, top, left - 5, top + 43 + (dataGridView1.RowCount - 1) * DGV_ALTO);
+                }
+                left = ep.MarginBounds.Left;
+                ep.Graphics.FillRectangle(Brushes.Black, left, top + 40, ep.MarginBounds.Right - left, 3);
+                top += 43;
+                ep.Graphics.DrawString("Total: " + total.ToString() + "€", new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left+700, top + 450);
+                ep.Graphics.DrawString("Iva: " + iva.ToString() + "€", new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left+700, top + 475);
+                ep.Graphics.DrawString("TOTAL FACTURA: "+sumaTotal.ToString()+"€", new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left+700, top+500);
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (row.Index == dataGridView1.RowCount - 1) break;
+                    left = ep.MarginBounds.Left;
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        ep.Graphics.DrawString(Convert.ToString(cell.Value), new Font("Segoe UI", 13), Brushes.Black, left, top + 4);
+                        left += cell.OwningColumn.Width;
+                    }
+                    top += DGV_ALTO;
+                    ep.Graphics.DrawLine(Pens.Gray, ep.MarginBounds.Left, top, ep.MarginBounds.Right, top);
+                }
+
+
+            };
+            ppd.ShowDialog();
         }
     }
 }

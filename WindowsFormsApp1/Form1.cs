@@ -142,6 +142,7 @@ namespace WindowsFormsApp1
                 const int DGV_ALTO = 35;
                 int left = ep.MarginBounds.Left, top = ep.MarginBounds.Top;
 
+
                 foreach (DataGridViewColumn col in dataGridView1.Columns)
                 {
                     ep.Graphics.DrawString(col.HeaderText, new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left, top);
@@ -153,7 +154,7 @@ namespace WindowsFormsApp1
                 left = ep.MarginBounds.Left;
                 ep.Graphics.FillRectangle(Brushes.Black, left, top + 40, ep.MarginBounds.Right - left, 3);
                 top += 43;
-
+                //ep.Graphics.DrawString("TOTAL FACTURA", new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left, top+500);
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
                     if (row.Index == dataGridView1.RowCount - 1) break;
@@ -166,6 +167,8 @@ namespace WindowsFormsApp1
                     top += DGV_ALTO;
                     ep.Graphics.DrawLine(Pens.Gray, ep.MarginBounds.Left, top, ep.MarginBounds.Right, top);
                 }
+                
+
             };
             ppd.ShowDialog();
         }
