@@ -197,7 +197,39 @@ namespace WindowsFormsApp1
             }
             else
             {
-                return "error 44, al recuperar id producto";
+                return "error 44, al recuperar id cliente";
+            }
+        }
+        public string nameClient(string id)
+        {
+            string query = "SELECT name FROM `client` WHERE `idclient` = " + id + "";
+            string idProduct = "0";
+            if (this.OpenConnection() == true)
+            {
+                try
+                {
+                    //Create Command
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                    //Read the data and store them in the list      
+                    while (dataReader.Read())
+                    {
+                        idProduct = dataReader[0].ToString();
+                    }
+                    this.CloseConnection();
+                    return idProduct;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("error" + ex.Message);
+                    return "error " + ex.Message;
+                }
+            }
+            else
+            {
+                return "error 44, al recuperar id cliente";
             }
         }
 
@@ -728,8 +760,46 @@ namespace WindowsFormsApp1
                 //Read the data and store them in the list      
                 while (dataReader.Read())
                 {
-                    Cliente producto = new Cliente(dataReader["name"].ToString(), dataReader["tlf"].ToString(), dataReader["email"].ToString(), dataReader["dni"].ToString(), dataReader["direccion"].ToString());
+                    Cliente producto = new Cliente(dataReader["name"].ToString(), dataReader["email"].ToString(), dataReader["dni"].ToString(), dataReader["tlf"].ToString(), dataReader["direccion"].ToString());
                     list.Add(producto);
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return list;
+            }
+            else
+            {
+                return list;
+            }
+        }
+
+        public List<SimpleInvoice> SelectInvoices()
+        {
+            string query = "SELECT * FROM invoice";
+            //Create a list to store the result
+            List<SimpleInvoice> list = new List<SimpleInvoice>();
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list      
+                while (dataReader.Read())
+                {
+                    if (dataReader["amount"].ToString() != "")
+                    {
+                        SimpleInvoice producto = new SimpleInvoice(dataReader["idinvoice"].ToString(),dataReader["dateCreate"].ToString(), dataReader["amount"].ToString(), dataReader["client_idclient"].ToString());
+                        list.Add(producto);
+                    }
                 }
 
                 //close Data Reader

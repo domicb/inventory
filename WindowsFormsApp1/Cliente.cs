@@ -18,7 +18,7 @@ namespace WindowsFormsApp1
         {
             this.nombre = nombre;
             this.email = email;
-            this.email = dni;
+            this.dni = dni;
             this.tlf = tlf;
             this.direccion = direccion;
         }

@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textDescription = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.textPeso = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textCantidad = new System.Windows.Forms.TextBox();
@@ -47,23 +45,6 @@
             this.comboBoxTipo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // textDescription
-            // 
-            this.textDescription.Location = new System.Drawing.Point(136, 39);
-            this.textDescription.Name = "textDescription";
-            this.textDescription.Size = new System.Drawing.Size(252, 20);
-            this.textDescription.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(11, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Descripción";
             // 
             // textPeso
             // 
@@ -193,7 +174,7 @@
             // comboBoxTipo
             // 
             this.comboBoxTipo.FormattingEnabled = true;
-            this.comboBoxTipo.Location = new System.Drawing.Point(136, 86);
+            this.comboBoxTipo.Location = new System.Drawing.Point(146, 39);
             this.comboBoxTipo.Name = "comboBoxTipo";
             this.comboBoxTipo.Size = new System.Drawing.Size(252, 21);
             this.comboBoxTipo.TabIndex = 27;
@@ -203,7 +184,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 87);
+            this.label1.Location = new System.Drawing.Point(12, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(122, 20);
             this.label1.TabIndex = 28;
@@ -231,8 +212,6 @@
             this.Controls.Add(this.textCantidad);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textPeso);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textDescription);
             this.Name = "Form3";
             this.Text = "Registrar Producto";
             this.Load += new System.EventHandler(this.Form3_Load);
@@ -242,8 +221,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textDescription;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textPeso;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textCantidad;

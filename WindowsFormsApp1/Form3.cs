@@ -33,7 +33,7 @@ namespace WindowsFormsApp1
         {
             if (comboBoxTipo.Text != "")
             {               
-                string name = textDescription.Text;
+                string name = comboBoxTipo.SelectedItem.ToString();
                 string size = comboBoxTipo.SelectedItem.ToString();
                 string quantity = textCantidad.Text;
                 string weight = textPeso.Text;

@@ -28,226 +28,121 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.buttonNewSalida = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buttonPrintInvoice = new System.Windows.Forms.Button();
-            this.labelTotal = new System.Windows.Forms.Label();
-            this.textBoxSumaTotal = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxIva = new System.Windows.Forms.TextBox();
-            this.textBoxTotal = new System.Windows.Forms.TextBox();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Productos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labelAlbaran = new System.Windows.Forms.Label();
-            this.textBoxNAlbaran = new System.Windows.Forms.TextBox();
-            this.labelEmpresa = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.NºAlbaran = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // buttonNewSalida
+            // 
+            this.buttonNewSalida.BackColor = System.Drawing.Color.SteelBlue;
+            this.buttonNewSalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNewSalida.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNewSalida.ForeColor = System.Drawing.Color.White;
+            this.buttonNewSalida.Location = new System.Drawing.Point(134, 26);
+            this.buttonNewSalida.Name = "buttonNewSalida";
+            this.buttonNewSalida.Size = new System.Drawing.Size(422, 34);
+            this.buttonNewSalida.TabIndex = 36;
+            this.buttonNewSalida.Text = "Nueva Salida";
+            this.buttonNewSalida.UseVisualStyleBackColor = false;
+            this.buttonNewSalida.Click += new System.EventHandler(this.buttonNewSalida_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeight = 30;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Fecha,
-            this.Cantidad,
-            this.Peso,
-            this.Productos,
-            this.Precio,
-            this.Total});
-            this.dataGridView1.Location = new System.Drawing.Point(9, 173);
+            this.NºAlbaran,
+            this.Telefono,
+            this.Email,
+            this.Dni});
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.SteelBlue;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 66);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(892, 499);
-            this.dataGridView1.TabIndex = 12;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.RowHeadersVisible = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(749, 607);
+            this.dataGridView1.TabIndex = 37;
             // 
-            // buttonPrintInvoice
+            // NºAlbaran
             // 
-            this.buttonPrintInvoice.BackColor = System.Drawing.Color.SteelBlue;
-            this.buttonPrintInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPrintInvoice.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPrintInvoice.ForeColor = System.Drawing.Color.White;
-            this.buttonPrintInvoice.Location = new System.Drawing.Point(112, 129);
-            this.buttonPrintInvoice.Name = "buttonPrintInvoice";
-            this.buttonPrintInvoice.Size = new System.Drawing.Size(375, 34);
-            this.buttonPrintInvoice.TabIndex = 25;
-            this.buttonPrintInvoice.Text = "Imprimir Albarán";
-            this.buttonPrintInvoice.UseVisualStyleBackColor = false;
+            this.NºAlbaran.HeaderText = "NºAlbaran";
+            this.NºAlbaran.Name = "NºAlbaran";
             // 
-            // labelTotal
+            // Telefono
             // 
-            this.labelTotal.AutoSize = true;
-            this.labelTotal.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.Location = new System.Drawing.Point(568, 140);
-            this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(134, 23);
-            this.labelTotal.TabIndex = 26;
-            this.labelTotal.Text = "Total Factura:";
+            this.Telefono.HeaderText = "Fecha";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.Width = 200;
             // 
-            // textBoxSumaTotal
+            // Email
             // 
-            this.textBoxSumaTotal.Location = new System.Drawing.Point(708, 143);
-            this.textBoxSumaTotal.Name = "textBoxSumaTotal";
-            this.textBoxSumaTotal.Size = new System.Drawing.Size(136, 20);
-            this.textBoxSumaTotal.TabIndex = 27;
+            this.Email.HeaderText = "Total";
+            this.Email.Name = "Email";
+            this.Email.Width = 150;
             // 
-            // label7
+            // Dni
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(662, 103);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 19);
-            this.label7.TabIndex = 28;
-            this.label7.Text = "IVA:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(643, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 19);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "TOTAL:";
-            // 
-            // textBoxIva
-            // 
-            this.textBoxIva.Location = new System.Drawing.Point(708, 105);
-            this.textBoxIva.Name = "textBoxIva";
-            this.textBoxIva.Size = new System.Drawing.Size(100, 20);
-            this.textBoxIva.TabIndex = 30;
-            // 
-            // textBoxTotal
-            // 
-            this.textBoxTotal.Location = new System.Drawing.Point(708, 69);
-            this.textBoxTotal.Name = "textBoxTotal";
-            this.textBoxTotal.Size = new System.Drawing.Size(100, 20);
-            this.textBoxTotal.TabIndex = 31;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.Width = 140;
-            // 
-            // Peso
-            // 
-            this.Peso.HeaderText = "Peso";
-            this.Peso.Name = "Peso";
-            this.Peso.Width = 120;
-            // 
-            // Productos
-            // 
-            this.Productos.HeaderText = "Productos";
-            this.Productos.Name = "Productos";
-            this.Productos.Width = 250;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.Width = 120;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.Width = 120;
-            // 
-            // labelAlbaran
-            // 
-            this.labelAlbaran.AutoSize = true;
-            this.labelAlbaran.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAlbaran.Location = new System.Drawing.Point(607, 16);
-            this.labelAlbaran.Name = "labelAlbaran";
-            this.labelAlbaran.Size = new System.Drawing.Size(95, 19);
-            this.labelAlbaran.TabIndex = 32;
-            this.labelAlbaran.Text = "NºAlbaran:";
-            // 
-            // textBoxNAlbaran
-            // 
-            this.textBoxNAlbaran.Location = new System.Drawing.Point(708, 18);
-            this.textBoxNAlbaran.Name = "textBoxNAlbaran";
-            this.textBoxNAlbaran.Size = new System.Drawing.Size(100, 20);
-            this.textBoxNAlbaran.TabIndex = 33;
-            // 
-            // labelEmpresa
-            // 
-            this.labelEmpresa.AutoSize = true;
-            this.labelEmpresa.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmpresa.Location = new System.Drawing.Point(48, 13);
-            this.labelEmpresa.Name = "labelEmpresa";
-            this.labelEmpresa.Size = new System.Drawing.Size(366, 22);
-            this.labelEmpresa.TabIndex = 34;
-            this.labelEmpresa.Text = "MARISCOS CARRILLO S.L - 697 866 650 ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(48, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(517, 22);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "Avenida de la Marina, 6 - 21100 Punta Umbría (Huelva)";
+            this.Dni.HeaderText = "Cliente";
+            this.Dni.Name = "Dni";
+            this.Dni.Width = 300;
             // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(911, 672);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.labelEmpresa);
-            this.Controls.Add(this.textBoxNAlbaran);
-            this.Controls.Add(this.labelAlbaran);
-            this.Controls.Add(this.textBoxTotal);
-            this.Controls.Add(this.textBoxIva);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBoxSumaTotal);
-            this.Controls.Add(this.labelTotal);
-            this.Controls.Add(this.buttonPrintInvoice);
+            this.ClientSize = new System.Drawing.Size(774, 672);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.buttonNewSalida);
             this.Name = "Form5";
-            this.Text = "Form5";
+            this.Text = "Registro Salidas";
             this.Load += new System.EventHandler(this.Form5_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
+        private System.Windows.Forms.Button buttonNewSalida;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button buttonPrintInvoice;
-        private System.Windows.Forms.Label labelTotal;
-        private System.Windows.Forms.TextBox textBoxSumaTotal;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxIva;
-        private System.Windows.Forms.TextBox textBoxTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Peso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Productos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
-        private System.Windows.Forms.Label labelAlbaran;
-        private System.Windows.Forms.TextBox textBoxNAlbaran;
-        private System.Windows.Forms.Label labelEmpresa;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NºAlbaran;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dni;
     }
 }

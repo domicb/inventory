@@ -57,8 +57,8 @@ namespace WindowsFormsApp1
                     {
 
                             dataGridView1.Rows.Add();
-                            dataGridView1.Rows[i].Cells[0].Value = listaDatos.ElementAt(i).getName();
-                            dataGridView1.Rows[i].Cells[1].Value = listaDatos.ElementAt(i).getSize();
+                            dataGridView1.Rows[i].Cells[0].Value = listaDatos.ElementAt(i).getSize();
+                            dataGridView1.Rows[i].Cells[1].Value = listaDatos.ElementAt(i).getPrice();
                             dataGridView1.Rows[i].Cells[2].Value = listaDatos.ElementAt(i).getKg();
                             dataGridView1.Rows[i].Cells[3].Value = listaDatos.ElementAt(i).getQuantity();
                             dataGridView1.Rows[i].Cells[4].Value = listaDatos.ElementAt(i).getLote();
@@ -220,8 +220,8 @@ namespace WindowsFormsApp1
 
         private void buttonSalida_Click(object sender, EventArgs e)
         {
-            Form4 newSalida = new Form4();
-            newSalida.Show();
+            Form5 salidas = new Form5();
+            salidas.Show();
         }
 
         private void btnslide_Click(object sender, EventArgs e)

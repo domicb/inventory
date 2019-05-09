@@ -30,6 +30,7 @@ namespace WindowsFormsApp1
         private void Form4_Load(object sender, EventArgs e)
         {
             buttonFactura.Enabled = true;
+            buttonPrint.Enabled = false;
             List<tipo> nuevalista = new List<tipo>();
             nuevalista = nuevaConexion.getTipoExist();
             int contador = 0;
@@ -139,6 +140,7 @@ namespace WindowsFormsApp1
                         nuevaConexion.Update(product, productAnterior, operacion, idsubproduct);
                         nuevaConexion.InsertProductInvoice(idsubproduct, preci, canti, total, peso);
                         this.loadGrid();
+                        buttonPrint.Enabled = true;
                     }
                     else
                     {
@@ -171,7 +173,7 @@ namespace WindowsFormsApp1
 
         private void comboBoxTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxCliente.Text != "" && comboBoxTipo.Text != "" && textBoxCantidad.Text != "" && textBoxPrecio.Text != "")
+            if (comboBoxTipo.Text != "")
             {
                 buttonProducto.Enabled = true;
             }
@@ -228,6 +230,7 @@ namespace WindowsFormsApp1
 
                 nuevaConexion.InsertInvoice(id_client);
                 buttonFactura.Enabled = false;
+                buttonProducto.Enabled = true;                
             }
             else
             {
@@ -291,9 +294,10 @@ namespace WindowsFormsApp1
                 left = ep.MarginBounds.Left;
                 ep.Graphics.FillRectangle(Brushes.Black, left, top + 40, ep.MarginBounds.Right - left, 3);
                 top += 43;
-                ep.Graphics.DrawString("Total: " + total.ToString() + "€", new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left+700, top + 450);
-                ep.Graphics.DrawString("Iva: " + iva.ToString() + "€", new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left+700, top + 475);
-                ep.Graphics.DrawString("TOTAL FACTURA: "+sumaTotal.ToString()+"€", new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left+700, top+500);
+                //ep.Graphics.DrawString("Total: " + total.ToString() + "€", new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left+700, top + 450);
+               //ep.Graphics.DrawString("Iva: " + iva.ToString() + "€", new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left+700, top + 475);
+                ep.Graphics.DrawString("RECIBÍ: ", new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left + 200, top + 450);
+                ep.Graphics.DrawString("TOTAL FACTURA: "+sumaTotal.ToString()+"€", new Font("Segoe UI", 16, FontStyle.Bold), Brushes.DeepSkyBlue, left+700, top+450);
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
                     if (row.Index == dataGridView1.RowCount - 1) break;
