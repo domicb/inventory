@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
         public FormLogin()
         {
             InitializeComponent();
-            this.loadGrid();          
+            this.loadGrid("default");          
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -35,7 +35,7 @@ namespace WindowsFormsApp1
         private extern static void SendMessage(System.IntPtr hwnd,int wmsg, int wparam, int lparam);
 
 
-        public void loadGrid()
+        public void loadGrid(string product)
         {
             if (nuevaConexion.getStatus() == "Open")
             {
@@ -46,8 +46,16 @@ namespace WindowsFormsApp1
             {
                 if (nuevaConexion.OpenConnection() == true)
                 {
+                    if(product == "default")
+                    {
+                        listaDatos = nuevaConexion.SelectSubProduct();
+                    }
+                    else
+                    {
+                        listaDatos = nuevaConexion.SelectSubProductFind(product);
+                    }
                     
-                    listaDatos = nuevaConexion.SelectSubProduct();
+                    
                     
                     this.clearDataGrid();
                     int n = listaDatos.Count();   
@@ -55,7 +63,11 @@ namespace WindowsFormsApp1
 
                     foreach (var item in listaDatos)
                     {
-
+                        string peso = listaDatos.ElementAt(i).getKg().ToString();
+                        string cantidad = listaDatos.ElementAt(i).getQuantity();
+                        //if (peso != "0" || cantidad != "0")
+                        //{
+                            
                             dataGridView1.Rows.Add();
                             dataGridView1.Rows[i].Cells[0].Value = listaDatos.ElementAt(i).getSize();
                             dataGridView1.Rows[i].Cells[1].Value = listaDatos.ElementAt(i).getPrice();
@@ -65,7 +77,7 @@ namespace WindowsFormsApp1
                             dataGridView1.Rows[i].Cells[5].Value = listaDatos.ElementAt(i).getInfo();
 
                             i++;
-                        
+                        //}
                     }        
                 }
             }
@@ -180,7 +192,7 @@ namespace WindowsFormsApp1
         private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.clearDataGrid();
-            this.loadGrid();
+            this.loadGrid("default");
         }
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -292,7 +304,21 @@ namespace WindowsFormsApp1
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.loadGrid();
+            string defecto = "default";
+            this.loadGrid(defecto);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string cadena = textBoxBuscar.Text;
+            if(cadena != "")
+            {
+                this.loadGrid(cadena);
+            }
+            else
+            {
+                this.loadGrid("default");
+            }
         }
     }
 }

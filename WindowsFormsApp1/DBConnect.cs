@@ -605,6 +605,43 @@ namespace WindowsFormsApp1
             }
         }
 
+        public List<Product> SelectSubProductFind( string product)
+        {
+            //string query = "SELECT * FROM `subproduct` WHERE `name` LIKE '%" + product + "%'";
+            //string query = "SELECT distinct name,size,kg,quantity,price,info,lote,dateIn,tipoProducto_idtipoProducto FROM `subproduct` order by `name`;";
+            string query = "SELECT * FROM `subproduct` where `size` like '%" + product + "%' order by `name`;";
+            //Create a list to store the result
+            listProducts = new List<Product>();
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    string now = dataReader["dateIn"].ToString();
+                    DateTime ahora = Convert.ToDateTime(now);
+                    Product producto = new Product(dataReader["name"].ToString(), dataReader["size"].ToString(), dataReader["kg"].ToString(), dataReader["quantity"].ToString(), dataReader["price"].ToString(), ahora, dataReader["info"].ToString(), dataReader["lote"].ToString(), dataReader["tipoProducto_idtipoProducto"].ToString());
+                    listProducts.Add(producto);
+                }
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return listProducts;
+            }
+            else
+            {
+                return listProducts;
+            }
+        }
+
         public List<Product> SelectSubProduct(string product = "pedro")
         {
             //string query = "SELECT * FROM `subproduct` WHERE `name` LIKE '%" + product + "%'";
