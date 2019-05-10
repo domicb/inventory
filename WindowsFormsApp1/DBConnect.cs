@@ -717,7 +717,7 @@ namespace WindowsFormsApp1
 
         public List<tipo> getTipoExist()
         {
-            string query = "SELECT DISTINCT size FROM `subproduct`;";
+            string query = "SELECT DISTINCT size FROM `subproduct` order by `size`;";
             //Create a list to store the result
             List<tipo> list = new List<tipo>();
             //Open connection
@@ -783,7 +783,7 @@ namespace WindowsFormsApp1
 
         public List<Cliente> SelectCliente()
         {
-            string query = "SELECT * FROM client ";
+            string query = "SELECT * FROM client order by `name`";
             //Create a list to store the result
             List<Cliente> list = new List<Cliente>();
             //Open connection

@@ -61,5 +61,10 @@ namespace WindowsFormsApp1
             Form4 newSalida = new Form4();
             newSalida.Show();
         }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
