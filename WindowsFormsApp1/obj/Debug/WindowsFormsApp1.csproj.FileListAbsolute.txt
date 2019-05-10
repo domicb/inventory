@@ -52,3 +52,6 @@ C:\Users\domicb\Documents\GitHub\inventory\WindowsFormsApp1\obj\Debug\WindowsFor
 C:\Users\domicb\Documents\GitHub\inventory\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\domicb\Documents\GitHub\inventory\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\domicb\Documents\GitHub\inventory\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\maris\OneDrive\Documentos\GitHub\inventory\WindowsFormsApp1\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Users\maris\OneDrive\Documentos\GitHub\inventory\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form5.resources
+C:\Users\maris\OneDrive\Documentos\GitHub\inventory\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Login.resources

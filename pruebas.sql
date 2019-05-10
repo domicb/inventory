@@ -20,7 +20,7 @@ SET
 
 /*UPDATE `mydb`.`subproduct`
 SET
-`quantity` = 108 where `idsubProduct` = 61;*/
+`price` = 40 where `idsubProduct` = 704;*/
 
 SELECT *
 FROM `mydb`.`subproduct` where `tipoProducto_idtipoProducto` = 32;
