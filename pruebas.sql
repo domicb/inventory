@@ -1,8 +1,16 @@
 SELECT *
-FROM `mydb`.`client`;
+FROM `mydb`.`client` order by `name`;
+
+UPDATE `mydb`.`client`
+SET
+`tlf` = '626954457'
+WHERE `idclient` = 48;
 
 SELECT *
 FROM `mydb`.`product`;
+
+SELECT `SIZE`, `PRICE`
+FROM `mydb`.`subproduct`
 
 SELECT `dateOut`
 FROM `mydb`.`subproduct` where `idsubProduct`=700;
@@ -11,7 +19,7 @@ SELECT *
 FROM `mydb`.`tipoproducto` order by `tipo`;
 
 /*DELETE FROM `mydb`.`tipoproducto`
-WHERE `idtipoProducto` = 7*/
+WHERE `idtipoProducto` = 36*/
 
 
 /*UPDATE `mydb`.`tipoproducto`
@@ -20,18 +28,26 @@ SET
 
 /*UPDATE `mydb`.`subproduct`
 SET
-`price` = 40 where `idsubProduct` = 704;*/
+`kg` = 6 where `idsubProduct` = 751;*/
 
 SELECT *
-FROM `mydb`.`subproduct` where `tipoProducto_idtipoProducto` = 32;
+FROM `mydb`.`subproduct` order by `size` where `tipoProducto_idtipoProducto` = 757;
 
 /*DELETE FROM `mydb`.`subproduct`
 WHERE `idsubProduct` = 267; /*> 669 AND  `idsubProduct` < 681;
+
+SELECT sum(amount)
+FROM `mydb`.`invoice` where `client_idclient` <> 3;
+
+SELECT *
+FROM `mydb`.`invoice_has_product`;
 
 SELECT *
 FROM `mydb`.`invoice`;
 
 SELECT *
 FROM `mydb`.`invoice_has_product`;
+
+
 
 

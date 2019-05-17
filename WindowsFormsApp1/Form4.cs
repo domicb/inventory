@@ -205,7 +205,7 @@ namespace WindowsFormsApp1
 
         private void textBoxPrecio_TextChanged(object sender, EventArgs e)
         {
-            if ( textBoxPrecio.Text != "" && textBoxPeso.Text != "")
+            if ( textBoxPrecio.Text != "" && textBoxPrecio.Text != "." && textBoxPeso.Text != "")
             {
                 buttonProducto.Enabled = true;
                 string canti = textBoxCantidad.Text;
